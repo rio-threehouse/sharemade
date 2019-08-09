@@ -48,11 +48,10 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
   adapter: postgresql
   encoding: unicode
   pool: 5
-  
+
   database: sharemade_production
   username: sharemade
   password: <%= ENV['SHAREMADE_DATABASE_PASSWORD'] %>
