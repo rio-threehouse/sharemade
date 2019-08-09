@@ -58,6 +58,11 @@ header {
 
 .welcometitle {
   font-weight: 700;
+  margin-bottom: 0;
+}
+
+.welcomecontent {
+  margin-top: 25px;
 }
 
 .welcomebtn {
