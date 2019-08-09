@@ -17,9 +17,10 @@
 
   <body>
     <%= render 'layouts/navbar' %>
-    <%# <div class="<%= 'container' if logged_in %>
+    <%= render 'layouts/flash_messages' %>
+
+    <div class="<%= 'container  margin-top10' if user_signed_in? %>">
     <div>
-      <%= render 'layouts/flash_messages' %>
       <%= yield %>
     </div>
   </body>
