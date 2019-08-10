@@ -13,13 +13,19 @@
           <li class="divider"></li>
           <li><a href='#'>ユーザランキング</a></li>
           <li class="divider"></li>
-          <li><a href='#'>ユーザ一覧</a></li>
+          <li><a href='/users'>ユーザ一覧</a></li>
         </ul>
       </span>
 
       <%= link_to destroy_user_session_path, class: 'white', method: :delete do %>
-        <span class="btn pull-right navfont">
+        <span class="btn pull-right signin-navfont">
           ログアウト
+        </span>
+      <% end %>
+
+      <%= link_to user_path(current_user) , class:'white' do %>
+        <span class="btn pull-right signin-navfont">
+          <i class="fas fa-user"></i>
         </span>
       <% end %>
       
