@@ -17,7 +17,7 @@
         </ul>
       </span>
 
-      <%= link_to destroy_user_session_path, class: 'white', method: :delete do %>
+      <%= link_to destroy_user_session_path, class: 'white', method: :delete, data: { confirm: "ログアウトしますか？" } do %>
         <span class="btn pull-right signin-navfont">
           ログアウト
         </span>
