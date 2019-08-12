@@ -1,5 +1,8 @@
 ja:
   activerecord:
+    models:
+      user: ユーザ
+      result: 作品
     attributes:
       user: 
         email: メールアドレス
@@ -7,4 +10,10 @@ ja:
         name: 名前
         password_confirmation: 確認用パスワード
         remember_me: 次回から自動的にログイン
+      result:
+        subtitle: サブタイトル
+        title: タイトル
+        url: URL
+        detail: 作品紹介
+        github: GitHubのURL
         
