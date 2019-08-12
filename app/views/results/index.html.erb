@@ -1,2 +1,25 @@
-<h1>Results#index</h1>
-<p>オリジナル作品一覧
+<div class="row margin-top30">
+  <div class="col-sm-9 col-sm-push-3">
+    <div class="panel">
+      <div class="panel-heading partition">
+        <h5><i class="fas fa-share-alt"></i> 最新の作品</h5>
+      </div>
+      <div class="panel-body">
+        パネルの内容
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-3 col-sm-pull-9">
+    <ul class="nav nav-pills nav-stacked">
+      <li role="presentation">
+        <%= link_to user_path(current_user) do %>
+          <i class="fas fa-user"></i> マイページ</a>
+        <% end %>
+      </li>
+      <li role="presentation" class="active"><a href="/results" ><i class="fas fa-share-alt"></i> 最新の作品</a></li>
+      <li role="presentation"><a href="#"><i class="fas fa-star"></i> 注目の作品</a></li>
+      <li role="presentation"><a href="#"><i class="fas fa-crown"></i> ユーザランキング</a></li>
+    </ul>
+  </div>
+</div>

@@ -7,25 +7,40 @@
           <i class="far fa-caret-square-down"></i>
         </button>
         <ul class="dropdown-menu" role="menu">
-          <li><a href='#'>最新</a></li>
+          <li><a href='/results'><i class="fas fa-share-alt"></i> 最新の作品</a></li>
           <li class="divider"></li>
-          <li><a href='#'>注目</a></li>
+          <li><a href='#'><i class="fas fa-star"></i> 注目の作品</a></a></li>
           <li class="divider"></li>
-          <li><a href='#'>ユーザランキング</a></li>
+          <li><a href='#'><i class="fas fa-crown"></i> ユーザランキング</a></a></li>
           <li class="divider"></li>
           <li><a href='/users'>ユーザ一覧</a></li>
         </ul>
       </span>
 
-      <%= link_to destroy_user_session_path, class: 'white', method: :delete, data: { confirm: "ログアウトしますか？" } do %>
-        <span class="btn pull-right signin-navfont">
-          ログアウト
-        </span>
-      <% end %>
+    <span class="dropdown pull-right navicon">
+      <button class=" btn dropdown-toggle background" type="button" data-toggle="dropdown">
+        <span class="naviconfont"><i class="fas fa-user-circle"></i> <i class="fas fa-caret-down"></i></span>
+      </button>
+      <ul class="dropdown-menu" role="user">
+        <li>
+          <%= link_to user_path(current_user) do %>
+            <i class="fas fa-user"></i> マイページ</a>
+          <% end %>
+        </li>
+        <li class="divider"></li>
+        <li><a href="/users/edit">アカウント設定</a></li>
+        <li class="divider"></li>
+        <li>
+          <%= link_to 'ログアウト', destroy_user_session_path, class: 'text-center', method: :delete, data: { confirm: "ログアウトしますか？" } %>
+        </li>
+      </ul>
+    </span>
 
-      <%= link_to user_path(current_user) , class:'white' do %>
-        <span class="btn pull-right signin-navfont">
-          <i class="fas fa-user"></i>
+      
+
+      <%= link_to new_result_path, class:'white' do %>
+        <span class="btn pull-right signin-navfont margin-top10">
+          <i class="fas fa-edit"></i> 作品登録
         </span>
       <% end %>
       

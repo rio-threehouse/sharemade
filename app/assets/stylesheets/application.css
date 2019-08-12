@@ -30,6 +30,7 @@ body {
   background: #f7f7f7;
 }
 
+/* ナビバー */
 .navlogo {
   font-size: 20px;
   float: left;
@@ -45,11 +46,19 @@ body {
 }
 
 .navpull {
-  margin-top: 7px;
-  padding: 6px;
+  margin-top: 3px;
+  padding-left: 6px;
   color: #272e2e;
-  font-size: 17px;
+  font-size: 23px;
   background: #2BCDD3;
+}
+
+.navicon {
+  margin-top: 5px;
+}
+
+.naviconfont {
+  font-size: 20px;
 }
 
 .dropdown-menu {
@@ -62,8 +71,8 @@ body {
 }
 
 .signin-navfont {
-  font-size: 12px;
-  margin: 10px 0 0 0;
+  font-size: 13px;
+  background: #11b5bb;
 }
 
 .signup {
@@ -75,7 +84,7 @@ body {
 }
 
 .welcome {
-  padding: 50px 10% 200px 10%;
+  padding: 50px 40px 200px 40px;
   color: #fff;
   background-color: #f7f7f7;
   background-image: linear-gradient(0deg, #f7f7f7 2%, #69f1f7 18%, #2bcdd3 50%);
@@ -93,7 +102,7 @@ body {
 .welcomebtn {
   color: #fff;
   border-bottom: 2px solid #fff;
-  margin: 20px 30px 0 0;
+  margin: 20px 15px;
   border-radius: 0;
 }
 
@@ -110,5 +119,22 @@ body {
 
 .nomalbtn:hover {
   color: #fff;
-  background: #2bcdd3
+  background: #2bcdd3;
+}
+
+/* メニューリスト */
+.nav-pills > li > a {
+  color: #707272;
+}
+
+.nav-pills > li.active > a {
+  background: #2bcdd3;
+}
+
+.nav-pills > li.active > a:hover {
+  background: #11b5bb;
+}
+
+.partition {
+  border-bottom:1px solid #c0c0c0;
 }
