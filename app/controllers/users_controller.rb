@@ -5,5 +5,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
+    # @results = @user.results
   end
 end
