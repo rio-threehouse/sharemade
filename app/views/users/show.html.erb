@@ -13,15 +13,13 @@
 
   <div class="col-sm-9">
     <span class="btn btn-info">
-      作品  カウント
+      作品  <span class="label label-default"><%= @count_results %></span>
     </span>
     <span class="btn btn-default">
-      いいねした作品 カウント
+      いいねした作品
     </span>
     <div class="panel margin-top10">
-      <div class="panel-body">
-        パネルの内容
-      </div>
+      <%= render 'results/results', results: @results %>
     </div>
   </div>
 

@@ -146,3 +146,27 @@ footer {
 .partition {
   border-bottom:1px solid #c0c0c0;
 }
+
+.eachbody {
+  padding: 0;
+}
+
+.eachcontent {
+  padding: 15px;
+}
+
+.title {
+  margin: 5px 0;
+}
+
+.result {
+  padding: 20px 30px;
+}
+
+.border-left {
+  border-left: 5px solid #6ed32b;
+}
+
+.padding-left {
+  padding-left: 10px;
+}

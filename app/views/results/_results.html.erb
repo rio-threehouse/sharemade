@@ -1,0 +1,12 @@
+<div class="panel-body eachbody">
+  <% results.each do |result| %>
+    <div class='eachcontent partition'>
+      <%= result.subtitle %>
+      <h4><%= link_to result.title, result_path(result) %></h4>
+      <div class="text-muted">
+        <span>by <%= link_to result.user.name, user_path(result.user) %></span>
+        <span><%= time_ago_in_words(result.created_at) %></span>
+      </div>
+    </div>
+  <% end %>
+</div>

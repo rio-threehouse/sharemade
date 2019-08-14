@@ -1,9 +1,11 @@
 class ResultsController < ApplicationController
   before_action :authenticate_user!
   def index
+    @results = Result.all.order('created_at DESC')
   end
 
   def show
+    @result = Result.find(params[:id])
   end
 
   def new

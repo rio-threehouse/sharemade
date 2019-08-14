@@ -4,9 +4,7 @@
       <div class="panel-heading partition">
         <h5><i class="fas fa-share-alt"></i> 最新の作品</h5>
       </div>
-      <div class="panel-body">
-        パネルの内容
-      </div>
+        <%= render 'results/results', results: @results %>
     </div>
   </div>
 
@@ -14,7 +12,7 @@
     <ul class="nav nav-pills nav-stacked">
       <li role="presentation">
         <%= link_to user_path(current_user) do %>
-          <i class="fas fa-user"></i> マイページ</a>
+          <i class="fas fa-user"></i> マイページ
         <% end %>
       </li>
       <li role="presentation" class="active"><a href="/results" ><i class="fas fa-share-alt"></i> 最新の作品</a></li>
