@@ -1,0 +1,31 @@
+<%= form_for(result) do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
+
+  <div class="form-group">
+    <%= f.label :subtitle, 'サブタイトル' %> <span class="label label-danger">必須</span>
+    <%= f.text_field :subtitle, placeholder: '自分の作ったアプリやサイトを共有するサービス', class: 'form-control', required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :title, 'タイトル' %> <span class="label label-danger">必須</span>
+    <%= f.text_field :title, placeholder: 'Sharemade', class: 'form-control', required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :url, '作品のURL'%> <span class="label label-danger">必須</span>
+    <%= f.text_field :url, placeholder: 'https://sharemade-threehouse.herokuapp.com', class: 'form-control', required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :detail, '作品紹介'%>
+    <%= f.text_area :detail, placeholder: '作品の説明・使い方・こだわりなど', class: 'form-control', rows: 10 %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :github, 'GitHubのURL'%>
+    <%= f.text_field :github, placeholder: 'https://github.com/rio-threehouse/sharemade', class: 'form-control' %>
+  </div>
+
+  <%= f.submit '登録する', class: 'btn btn-info btn-block'%>
+  
+<% end %>

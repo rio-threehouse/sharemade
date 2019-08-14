@@ -12,6 +12,10 @@
   margin-top: 30px;
 }
 
+.margin-bottom10 {
+  margin-bottom: 10px;
+}
+
 .color {
   color: #2BCDD3;
 }
@@ -22,6 +26,10 @@
 
 .white {
   color: #fff;
+}
+
+.green {
+  color: #52b311;
 }
 
 header {

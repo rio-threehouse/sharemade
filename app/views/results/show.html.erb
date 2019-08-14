@@ -3,22 +3,25 @@
   <div class="col-sm-9 col-sm-push-3">
     <div class='panel'>
       <div class="panel-body result">
+        <% if @result.user == current_user %>
+          <%= link_to edit_result_path(@result) do %>
+            <div class="text-right margin-bottom10">
+              <i class="fas fa-pencil-ruler"></i> 編集する
+            </div>
+          <% end %>
+        <% end %>
         <div class="border-left">
           <div class="padding-left">
             <%= @result.subtitle %>
             <h3 class="title"><%= @result.title %></h3>
-            URL <%= @result.url %>
+            <div>URL <%= @result.url %></div>
+            by <%= link_to @result.user.name, user_path(@result.user) %>
           </div>
         </div>
 
-        
         <a href="<%= @result.url %>" target="_blank" class="btn btn-info btn-block margin-top20">作品を見る</a>
-        
-        <div class="margin-top20">
-          <i class="fas fa-user"></i> <%= @result.user.name %>
-        </div>
 
-        <div class="margin-top10">
+        <div class="margin-top20">
           <%= simple_format(@result.detail) %>
         </div>
         
@@ -35,7 +38,7 @@
   <div class="col-sm-3 col-sm-pull-9">
     <div class="panel">
       <div class="panel-heading partition text-center">
-        <span><i class="fas fa-user"></i> 作った人</span>
+        <span><i class="fas fa-user"></i> 制作者</span>
       </div>
       <div class="panel-body">
         <%= link_to @result.user.name, user_path(@result.user) %>

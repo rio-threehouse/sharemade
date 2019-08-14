@@ -1,5 +1,7 @@
 class ResultsController < ApplicationController
   before_action :authenticate_user!
+  before_action :correct_user, only: [:edit, :update, :destroy]
+
   def index
     @results = Result.all.order('created_at DESC')
   end
@@ -27,14 +29,31 @@ class ResultsController < ApplicationController
   end
 
   def update
+    if @result.update(result_params)
+      flash[:success] = "作品情報を編集しました"
+      redirect_to result_path(@result)
+    else
+      flash.now[:danger] = "作品情報の変更に失敗しました"
+      render 'edit'
+    end
   end
 
   def destroy
+    @result.destroy
+    flash[:danger] = "作品を削除しました"
+    redirect_to user_url(current_user)
   end
 
   private
 
   def result_params
     params.require(:result).permit(:subtitle, :title, :detail, :url, :github)
+  end
+
+  def correct_user
+    @result = current_user.results.find_by(id: params[:id])
+    unless @result
+      redirect_to results_url
+    end
   end
 end
