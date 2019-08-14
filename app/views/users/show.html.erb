@@ -19,7 +19,15 @@
       いいねした作品
     </span>
     <div class="panel margin-top10">
-      <%= render 'results/results', results: @results %>
+      <div class="panel-body eachbody">
+        <% if @results == [] %>
+          <div class="text-muted eachcontent">
+            登録している作品はありません
+          </div>
+        <% end %>
+
+        <%= render 'results/results', results: @results %>
+      </div>
     </div>
   </div>
 

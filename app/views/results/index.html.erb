@@ -4,7 +4,14 @@
       <div class="panel-heading partition">
         <h5><i class="fas fa-share-alt"></i> 最新の作品</h5>
       </div>
+      <div class="panel-body eachbody">
+        <% if @results == [] %>
+          <div class="text-muted eachcontent">
+            作品はありません
+          </div>
+        <% end %>
         <%= render 'results/results', results: @results %>
+      </div>
     </div>
   </div>
 
