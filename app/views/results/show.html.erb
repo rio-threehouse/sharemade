@@ -38,10 +38,15 @@
   <div class="col-sm-3 col-sm-pull-9">
     <div class="panel">
       <div class="panel-heading partition text-center">
-        <span><i class="fas fa-user"></i> 制作者</span>
+        制作者
       </div>
       <div class="panel-body">
-        <%= link_to @result.user.name, user_path(@result.user) %>
+        <b><i class="fas fa-user"></i> <%= link_to @result.user.name, user_path(@result.user) %></b>
+        <p><%= @result.user.yourself %></p>
+        <% unless @result.user.skill == "" %>
+          <b>▷言語・スキル</b>
+          <p><%= @result.user.skill %></p>
+        <% end %>
       </div>
     </div>
   </div>

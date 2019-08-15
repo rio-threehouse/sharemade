@@ -1,12 +1,18 @@
 <div class="row margin-top20">
-
   <div class="col-sm-3">
     <div class="panel">
       <div class="panel-heading partition text-center">
         <span><%= @user.name %></span>
       </div>
       <div class="panel-body">
-        プロフィール
+        <p><%= @user.yourself %></p>
+        <% unless @user.skill == "" %>
+          <b>▷言語・スキル</b>
+          <p><%= @user.skill %></p>
+        <% end %>
+        <% if @user == current_user %>
+          <a href="/users/edit" class="pull-right"><i class="fas fa-user-edit"></i>プロフィール編集</a>
+        <% end %>
       </div>
     </div>
   </div>

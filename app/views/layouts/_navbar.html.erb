@@ -1,7 +1,7 @@
 <header>
   <div class="container">
-    <a href="/" class='navlogo'>Sharemade</a>
     <% if user_signed_in? %>
+      <a href="/results" class='navlogo'>Sharemade</a>
       <span class="dropdown">
         <button class="btn navpull dropdown-toggle" type="button" data-toggle="dropdown">
           <i class="far fa-caret-square-down"></i>
@@ -14,6 +14,8 @@
           <li><a href='#'><i class="fas fa-crown"></i> ユーザランキング</a></a></li>
           <li class="divider"></li>
           <li><a href='/users'>ユーザ一覧</a></li>
+          <li class="divider"></li>
+          <li><a href='/'>Sharemadeの使い方</a></li>
         </ul>
       </span>
 
@@ -28,7 +30,7 @@
             <% end %>
           </li>
           <li class="divider"></li>
-          <li><a href="/users/edit">アカウント設定</a></li>
+          <li><a href="/users/edit">プロフィール編集<br>アカウント設定</a></li>
           <li class="divider"></li>
           <li>
             <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？" } %>
@@ -43,6 +45,7 @@
       <% end %>
       
     <% else %>
+      <a href="/" class='navlogo'>Sharemade</a>
       <%= link_to new_user_session_path, class: 'white' do %>
         <span class="btn pull-right navfont">
           <span>ログイン</span>
