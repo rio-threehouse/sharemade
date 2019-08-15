@@ -9,4 +9,6 @@ class User < ApplicationRecord
          validates :skill, length: {maximum: 150 }
   
   has_many :results, dependent: :destroy
+  has_many :goods, dependent: :destroy
+  has_many :good_results, through: :goods, source: :result
 end

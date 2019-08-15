@@ -6,4 +6,7 @@ class Result < ApplicationRecord
   validates :detail, length: { maximum: 65535 }
   validates :url, length: { maximum: 65535 }, presence: true
   validates :github, length: { maximum: 65535 }
+
+  has_many :goods, dependent: :destroy
+  has_many :good_users, through: :goods, source: :user
 end
