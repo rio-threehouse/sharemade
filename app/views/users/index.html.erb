@@ -1,2 +1,14 @@
-<h1>Users#index</h1>
-<p>ユーザ一覧</p>
+<div class="row margin-top20">
+  <div class="col-sm-9 col-sm-push-3">
+    <div class="panel">
+      <div class="panel-heading partition">
+        <h5><i class="fas fa-users"></i> ユーザー</h5>
+      </div>
+      <div class="panel-body eachbody">
+        <%= render 'users/users', users: @users%>
+      </div>
+    </div>
+  </div>
+
+  <%= render 'layouts/home_nav'%>
+</div>

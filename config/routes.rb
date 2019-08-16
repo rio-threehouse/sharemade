@@ -12,5 +12,5 @@ Rails.application.routes.draw do
     resource :goods, only: [:create, :destroy]
   end
 
-  get '/goods', to: 'goods#index'
+  get '/good_ranking', to: 'goods#index'
 end

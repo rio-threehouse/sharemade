@@ -1,0 +1,10 @@
+<% users.each do |user| %>
+  <div class='eachcontent partition'>
+    <p><%= link_to user.name, user_path(user) %></p>
+    <p><%= user.yourself %></p>
+    <% unless user.results == [] %>
+      登録した作品 <span class='green'><%= user.results.count %></span> /
+    <% end %>
+    いいねした作品 <%= user.good_results.count %>
+  </div>
+<% end %>
