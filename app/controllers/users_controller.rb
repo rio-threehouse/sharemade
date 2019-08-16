@@ -7,6 +7,10 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @results = @user.results.order('created_at DESC')
-    counts(@user)
+  end
+
+  def goods
+    @user = User.find(params[:id])
+    @results = @user.good_results
   end
 end

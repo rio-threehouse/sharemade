@@ -1,0 +1,12 @@
+<div class="col-sm-3 col-sm-pull-9">
+  <ul class="nav nav-pills nav-stacked">
+    <li role="presentation">
+      <%= link_to user_path(current_user) do %>
+        <i class="fas fa-user"></i> マイページ
+      <% end %>
+    </li>
+    <li role="presentation" class="<%= 'active' if current_page?(results_path) %>"><a href="/results" ><i class="fas fa-share-alt"></i> 最新の作品</a></li>
+    <li role="presentation" class="<%= 'active' if current_page?(goods_path) %>"><a href="/goods"><i class="fas fa-star"></i> 注目の作品</a></li>
+    <li role="presentation"><a href="#"><i class="fas fa-crown"></i> ユーザランキング</a></li>
+  </ul>
+</div>
