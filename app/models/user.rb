@@ -11,4 +11,18 @@ class User < ApplicationRecord
   has_many :results, dependent: :destroy
   has_many :goods, dependent: :destroy
   has_many :good_results, through: :goods, source: :result
+
+  def good(result)
+    self.goods.find_or_create_by(result_id: result.id)
+  end
+
+  def ungood(result)
+    good = self.goods.find_by(result_id: result)
+    good.destroy if good
+  end
+
+  def good?(result)
+    self.good_results.include?(result)
+  end
+
 end

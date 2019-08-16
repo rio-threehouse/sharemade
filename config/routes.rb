@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   root to: 'toppage#index'
 
   resources :users, only: [:index, :show]
-  resources :results
+  resources :results do 
+    resource :goods, only: [:create, :destroy]
+  end
 end
