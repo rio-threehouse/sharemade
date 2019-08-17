@@ -20,7 +20,9 @@
         </div>
 
         <a href="<%= @result.url %>" target="_blank" class="btn btn-info btn-block margin-top20">作品を見る</a>
-        <%= render 'goods/good_btn', result: @result %>
+        <div id="good_btn_<%= @result.id %>">
+          <%= render 'goods/good_btn', result: @result %>
+        </div>    
 
         <div class="margin-top20">
           <%= simple_format(@result.detail) %>

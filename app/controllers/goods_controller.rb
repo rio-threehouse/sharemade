@@ -6,14 +6,18 @@ class GoodsController < ApplicationController
   end
 
   def create
-    result = Result.find(params[:result_id])
-    current_user.good(result)
-    redirect_back(fallback_location: results_path)
+    @result = Result.find(params[:result_id])
+    current_user.good(@result)
+    # reloadを実行するとデータベースの値を取得しています。 カウント調整
+    @result.reload
+
+    # redirect_back(fallback_location: results_path)
   end
 
   def destroy
-    result = Result.find(params[:result_id])
-    current_user.ungood(result)
-    redirect_back(fallback_location: results_path)
+    @result = Result.find(params[:result_id])
+    current_user.ungood(@result)
+    @result.reload
+    # redirect_back(fallback_location: results_path)
   end
 end

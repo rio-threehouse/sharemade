@@ -183,17 +183,21 @@ footer {
   padding-left: 10px;
 }
 
-.good {
+.good  {
   color: #f79b24;
   border: 2px solid #f79b24;
   padding: 6px 20%;
 }
 
-.good:hover,
-.goodnow,
-.goodnow:hover {
+.goodnow  {
   color: #f79b24;
   background: #f7ad2438;
   border: 2px solid #f79b24;
   padding: 6px 20%;
+}
+
+.good:hover,
+.goodnow:hover {
+  color: #f79b24;
+  opacity: 0.7;
 }
