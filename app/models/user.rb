@@ -25,4 +25,5 @@ class User < ApplicationRecord
     self.good_results.include?(result)
   end
 
+  has_many :comments, dependent: :destroy
 end

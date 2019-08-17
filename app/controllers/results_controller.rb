@@ -8,6 +8,7 @@ class ResultsController < ApplicationController
 
   def show
     @result = Result.find(params[:id])
+    @comment = current_user.comments.build
   end
 
   def new

@@ -19,7 +19,7 @@
           </div>
         </div>
 
-        <a href="<%= @result.url %>" target="_blank" class="btn btn-info btn-block margin-top20">作品を見る</a>
+        <a href="<%= @result.url %>" target="_blank" class="btn btn-success btn-block margin-top20">作品を見る</a>
         <div id="good_btn_<%= @result.id %>">
           <%= render 'goods/good_btn', result: @result %>
         </div>    
@@ -34,6 +34,24 @@
           </div>
         <% end %>
         
+      </div>
+    </div>
+
+    <%# コメント欄 %>
+    <div class="panel">
+      <div class="panel-body">
+        <%= form_for(@comment) do |f| %>
+          <div class="form-group">
+            <%= f.label :comment do %>
+              <i class="far fa-comment"></i> コメントを投稿する
+            <% end %>
+            <%= f.text_area :comment, placeholder: 'コメントを入力してください', class: 'form-control', rows: 5, required: true %>
+          </div>
+
+          <%= f.hidden_field :result_id, value: @result.id %>
+
+          <%= f.submit '投稿', class: 'btn btn-info pull-right' %>
+        <% end %>
       </div>
     </div>
   </div>

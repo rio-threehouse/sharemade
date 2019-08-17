@@ -12,5 +12,7 @@ Rails.application.routes.draw do
     resource :goods, only: [:create, :destroy]
   end
 
+  resources :comments, only: [:create, :destroy]
+
   get '/good_ranking', to: 'goods#index'
 end
