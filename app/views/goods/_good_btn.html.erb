@@ -1,9 +1,9 @@
 <% if current_user.good?(result) %>
-  <%= link_to result_goods_path(result.id), method: :delete, remote: true do %>
-    <span class='goodnow btn margin-top10'><i class="fas fa-thumbs-up"></i> <%= result.good_users.count %></span>
+  <%= link_to result_goods_path(result.id),style: 'text-decoration:none', method: :delete, remote: true do %>
+    <span class='goodnow btn margin-right10' ><i class="fas fa-thumbs-up"></i> <%= result.good_users.count %></span>
   <% end %>
 <% else %>
-  <%= link_to result_goods_path(result.id), method: :post, remote: true do %>
-    <span class='good btn margin-top10'><i class="far fa-thumbs-up"></i> <%= result.good_users.count %></span>
+  <%= link_to result_goods_path(result.id),style: 'text-decoration:none', method: :post, remote: true do %>
+    <span class='good btn margin-right10'><i class="far fa-thumbs-up"></i> <%= result.good_users.count %></span>
   <% end %>
 <% end %>

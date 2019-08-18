@@ -19,10 +19,17 @@
           </div>
         </div>
 
-        <a href="<%= @result.url %>" target="_blank" class="btn btn-success btn-block margin-top20">作品を見る</a>
-        <div id="good_btn_<%= @result.id %>">
-          <%= render 'goods/good_btn', result: @result %>
-        </div>    
+        <a href="<%= @result.url %>" target="_blank" class="btn btn-success btn-block margin-top20 margin-bottom10">作品を見る</a>
+        <div class="text-center">
+          <span id="good_btn_<%= @result.id %>">
+            <%= render 'goods/good_btn', result: @result %>
+          </span>
+
+          <span class="comment">
+            <span class="margin-right10"><i class="far fa-comment fa-lg"></i></span> <%= @comments.count %>
+          </span>    
+        </div>
+        
 
         <div class="margin-top20">
           <%= simple_format(@result.detail) %>
@@ -40,6 +47,22 @@
     <%# コメント欄 %>
     <div class="panel">
       <div class="panel-body">
+        <% @comments.each do |comment| %>
+          <% if comment.user == @result.user %>
+            <i class="fas fa-user"></i>
+          <% end %>
+          <%= link_to comment.user.name, user_path(comment.user) %>
+          <span class="pull-right text-muted margin-right10"><%= comment.created_at.strftime('%Y/%m/%d') %></span>
+          <% if comment.user == current_user %>
+            <span class="pull-right margin-right10">
+              <%= link_to comment_path(comment), method: :delete, class: 'text-danger', data: { confirm: '本当に削除しますか？'} do %>
+                <i class="fas fa-trash-alt"></i>
+              <% end %>
+            </span>
+          <% end %>
+          <div class="box margin-bottom10"><%= simple_format(comment.comment) %></div>
+        <% end %>
+
         <%= form_for(@comment) do |f| %>
           <div class="form-group">
             <%= f.label :comment do %>
@@ -48,9 +71,7 @@
             <%= render 'layouts/error_messages', model: f.object %>
             <%= f.text_area :comment, placeholder: 'コメントを入力してください', class: 'form-control', rows: 5, required: true %>
           </div>
-
           <%= hidden_field_tag :result_id, @result.id %>
-
           <%= f.submit '投稿', class: 'btn btn-info pull-right' %>
         <% end %>
       </div>
