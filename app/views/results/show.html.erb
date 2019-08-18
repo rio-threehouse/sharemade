@@ -14,13 +14,18 @@
           <div class="padding-left">
             <%= @result.subtitle %>
             <h3 class="title"><%= @result.title %></h3>
-            <div>URL <%= @result.url %></div>
             by <%= link_to @result.user.name, user_path(@result.user) %>
           </div>
         </div>
 
-        <a href="<%= @result.url %>" target="_blank" class="btn btn-success btn-block margin-top20 margin-bottom10">作品を見る</a>
-        <div class="text-center">
+        <div class="margin-top20 margin-bottom20">
+          <a href="<%= @result.url %>" target="_blank" class="btn btn-info btn-block">
+            <i class="fas fa-external-link-alt"></i> 作品を見る
+          </a>
+          <div>URL：<%= @result.url %></div>
+        </div>
+
+        <div>
           <span id="good_btn_<%= @result.id %>">
             <%= render 'goods/good_btn', result: @result %>
           </span>

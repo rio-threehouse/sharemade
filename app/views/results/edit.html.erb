@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col-sm-3 margin-top20">
     <ul class="nav nav-pills nav-stacked">
-      <li role="presentation" class="active"><a href="" style="pointer-events: none;" >
-        <i class="fas fa-pencil-ruler"></i> 作品編集
+      <li role="presentation" class="active">
+        <a href="" style="pointer-events: none;" ><i class="fas fa-pencil-ruler"></i> 作品編集 </a>
       </li>
     </ul>
   </div>
@@ -10,6 +10,7 @@
   <div class="col-sm-9 margin-top20">
     <%= render 'results/result_form', result: @result %>
     <div class="text-center margin-top30">
-    <%= link_to '作品を削除する', result_path(@result), method: :delete, class: 'btn btn-danger', data: { confirm: "この作品に関する情報が全て無くなります。本当に削除しますか？"} %>
+      <%= link_to '作品を削除する', result_path(@result), method: :delete, class: 'btn btn-danger', data: { confirm: "この作品に関する情報が全て無くなります。本当に削除しますか？"} %>
+    </div>
   </div>
 </div>
