@@ -45,10 +45,11 @@
             <%= f.label :comment do %>
               <i class="far fa-comment"></i> コメントを投稿する
             <% end %>
+            <%= render 'layouts/error_messages', model: f.object %>
             <%= f.text_area :comment, placeholder: 'コメントを入力してください', class: 'form-control', rows: 5, required: true %>
           </div>
 
-          <%= f.hidden_field :result_id, value: @result.id %>
+          <%= hidden_field_tag :result_id, @result.id %>
 
           <%= f.submit '投稿', class: 'btn btn-info pull-right' %>
         <% end %>

@@ -16,4 +16,6 @@ ja:
         url: URL
         detail: 作品紹介
         github: GitHubのURL
+      comment:
+        comment: コメント
         
