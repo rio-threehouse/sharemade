@@ -1,0 +1,7 @@
+<% if @comment_save %>
+  $('#comment_field').val('');
+  $('#comment').html("<%= j(render 'comments/comments', comments: @comments, result: @result) %>");
+  $('#error').removeClass('alert alert-warning').empty();
+<% else %>
+  $('#error').addClass('alert alert-warning').text("文字数がオーバーしています");
+<% end %>
