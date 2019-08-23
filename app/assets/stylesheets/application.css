@@ -215,3 +215,7 @@ footer {
   border: 1px solid #dfdfdf;
   border-radius: 5px;
 }
+
+.img {
+  width: 100%;
+}
