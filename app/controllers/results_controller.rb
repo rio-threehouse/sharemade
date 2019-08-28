@@ -49,7 +49,7 @@ class ResultsController < ApplicationController
   private
 
   def result_params
-    params.require(:result).permit(:subtitle, :title, :detail, :url, :github)
+    params.require(:result).permit(:subtitle, :title, :detail, :url, :github, :image)
   end
 
   def correct_user

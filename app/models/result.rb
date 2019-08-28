@@ -11,4 +11,6 @@ class Result < ApplicationRecord
   has_many :good_users, through: :goods, source: :user
 
   has_many :comments, dependent: :destroy
+
+  mount_uploader :image, ImagesUploader
 end

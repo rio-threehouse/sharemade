@@ -17,6 +17,11 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :image, '画像' %>
+    <%= f.file_field :image, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :detail, '作品紹介'%>
     <%= f.text_area :detail, placeholder: '作品の説明・使い方・こだわりなど', class: 'form-control', rows: 10 %>
   </div>
