@@ -3,11 +3,6 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= render 'layouts/error_messages', model: f.object %>
 
-      <div class="form-group text-center">
-        <%= f.label :current_password do %> 現在のパスワード <span class="label label-danger">必須</span><% end %>
-        <%= f.password_field :current_password, autofocus: true,  autocomplete: "current-password", placeholder: '保存には現在のパスワードが必要です', class: 'form-control', required: true %>
-      </div>
-
       <div class="panel">
         <div class="panel-heading text-center background white">
           <i class="fas fa-user-edit"></i> プロフィール編集
@@ -31,7 +26,7 @@
         </div>
       </div>
 
-      <div class="panel margin-top20">
+      <div class="panel">
         <div class="panel-heading text-center background white">
           アカウント設定
         </div>
@@ -60,10 +55,19 @@
           </div>
         </div>
       </div>
-
-      <div class="text-center">
-        <%= f.submit '保存する', class: 'btn btn-info'%>
+      
+      <div class="panel">
+        <div class="panel-body">
+          <div class="form-group text-center">
+            <%= f.label :current_password do %> 現在のパスワード <span class="label label-danger">必須</span><% end %>
+            <%= f.password_field :current_password, autocomplete: "current-password", placeholder: '保存には現在のパスワードが必要です', class: 'form-control', required: true %>
+          </div>
+          <div class="text-center">
+            <%= f.submit '保存する', class: 'btn btn-info'%>
+          </div>
+        </div>
       </div>
+      
     <% end %>
 
     <div class="text-center margin-top10">
