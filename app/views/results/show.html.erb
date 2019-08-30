@@ -10,21 +10,30 @@
             </div>
           <% end %>
         <% end %>
+
         <div class="border-left">
           <div class="padding-left">
-            <%= @result.subtitle %>
+            <small><%= @result.subtitle %></small>
             <h3 class="title"><%= @result.title %></h3>
             by <%= link_to @result.user.name, user_path(@result.user) %>
           </div>
         </div>
 
-        <%= image_tag @result.image.to_s %>
-
-        <div class="margin-top20 margin-bottom20">
+        <div class="row">
+         <div class="text-center margin-bottom20">
+          <% if @result.image.url != nil %>
+            <%= image_tag @result.image.url, class: 'img' %>
+          <% else %>
+            <img src="/images/no_image.png" alt="no_image" class="no_img">
+          <% end %>
+         </div>
+        </div>
+    
+        <div class="margin-bottom20">
           <a href="<%= @result.url %>" target="_blank" class="btn btn-info btn-block">
             <i class="fas fa-external-link-alt"></i> 作品を見る
           </a>
-          <div>URL：<%= @result.url %></div>
+          <div>（ URL：<%= @result.url %> ）</div>
         </div>
 
         <div>
@@ -42,7 +51,7 @@
           <%= simple_format(@result.detail) %>
         </div>
         
-        <% unless @result.github == "" %>
+        <% if @result.github != "" %>
           <div class="margin-top10">
             <i class="fab fa-github fa-lg"></i> <a href="<%= @result.github %>" target="_blank"><%= @result.github %></a>
           </div>
@@ -58,8 +67,9 @@
           <%= render 'comments/comments', comments: @comments, result: @result %>
         </div>
 
+        <div class="partition margin-top20 margin-bottom20"></div>
         <%= form_for(@comment, remote: true) do |f| %>
-          <div class="form-group">
+          <div class="form-group ">
             <%= f.label :comment do %>
               <i class="far fa-comment"></i> コメントを投稿する (最大225文字)
             <% end %>
