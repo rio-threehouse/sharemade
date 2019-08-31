@@ -3,60 +3,56 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= render 'layouts/error_messages', model: f.object %>
 
-      <div class="panel">
-        <div class="panel-heading text-center background white">
-          <i class="fas fa-user-edit"></i> プロフィール編集
+      <div class="panel-heading text-center background white">
+        <i class="fas fa-user-edit"></i> プロフィール編集
+      </div>
+
+      <div class="panel-body">
+        <div class="form-group">
+          <%= f.label :name, 'ユーザ名' %>
+          <%= f.text_field :name, class: 'form-control'%>
         </div>
 
-        <div class="panel-body">
-          <div class="form-group">
-            <%= f.label :name, 'ユーザ名' %>
-            <%= f.text_field :name, class: 'form-control'%>
-          </div>
+        <div class="form-group">
+          <%= f.label :yourself, '自己紹介（最大150文字）' %>
+          <%= f.text_area :yourself, class: 'form-control', rows: 6, placeholder: '改行は反映されません' %>
+        </div>
 
-          <div class="form-group">
-            <%= f.label :yourself, '自己紹介（最大150文字）' %>
-            <%= f.text_area :yourself, class: 'form-control', rows: 6, placeholder: '改行は反映されません' %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :skill, '言語・スキル' %>
-            <%= f.text_field :skill, class: 'form-control', placeholder: 'html / css / JavaScript / Illustrator'%>
-          </div>
+        <div class="form-group">
+          <%= f.label :skill, '言語・スキル' %>
+          <%= f.text_field :skill, class: 'form-control', placeholder: 'html / css / JavaScript / Illustrator'%>
         </div>
       </div>
 
-      <div class="panel">
-        <div class="panel-heading text-center background white">
-          アカウント設定
+      <div class="panel-heading text-center background white">
+        アカウント設定
+      </div>
+
+      <div class="panel-body">
+        <div class="field form-group">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autocomplete: "email", class: 'form-control' %>
         </div>
 
-        <div class="panel-body">
-          <div class="field form-group">
-            <%= f.label :email %><br />
-            <%= f.email_field :email, autocomplete: "email", class: 'form-control' %>
-          </div>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
 
-          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <div class="field form-group">
+          <%= f.label :password %> 
+          <% if @minimum_password_length %>
+            <em>( <%= @minimum_password_length %>文字以上 )</em><br />
           <% end %>
+          <%= f.password_field :password, autocomplete: "new-password", class: 'form-control', placeholder: '変更しない場合は空白' %>
+        </div>
 
-          <div class="field form-group">
-            <%= f.label :password %> 
-            <% if @minimum_password_length %>
-              <em>( <%= @minimum_password_length %>文字以上 )</em><br />
-            <% end %>
-            <%= f.password_field :password, autocomplete: "new-password", class: 'form-control', placeholder: '変更しない場合は空白' %>
-          </div>
-
-          <div class="field form-group">
-            <%= f.label :password_confirmation %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
-          </div>
+        <div class="field form-group">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
         </div>
       </div>
       
-      <div class="panel">
+      <div class="panel panel-default">
         <div class="panel-body">
           <div class="form-group text-center">
             <%= f.label :current_password do %> 現在のパスワード <span class="label label-danger">必須</span><% end %>

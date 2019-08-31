@@ -1,3 +1,5 @@
+<div class="margin-bottom10"><i class="far fa-comment"></i> <%= comments.count %> 件のコメント</div>
+
 <% comments.each do |comment| %>
   <% if comment.user == result.user %>
     <i class="fas fa-user"></i>

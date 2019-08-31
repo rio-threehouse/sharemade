@@ -1,7 +1,6 @@
 <div class="row margin-top20">
-
   <div class="col-sm-9 col-sm-push-3">
-    <div class='panel'>
+    <div class='panel panel-default'>
       <div class="panel-body result">
         <% if @result.user == current_user %>
           <%= link_to edit_result_path(@result) do %>
@@ -25,6 +24,7 @@
             <%= image_tag @result.image.url, class: 'img' %>
           <% else %>
             <img src="/images/no_image.png" alt="no_image" class="no_img">
+            NO IMAGE
           <% end %>
          </div>
         </div>
@@ -33,19 +33,14 @@
           <a href="<%= @result.url %>" target="_blank" class="btn btn-info btn-block">
             <i class="fas fa-external-link-alt"></i> 作品を見る
           </a>
-          <div>（ URL：<%= @result.url %> ）</div>
-        </div>
+          <div class="margin-bottom10">（ URL：<%= @result.url %> ）</div>
 
-        <div>
-          <span id="good_btn_<%= @result.id %>">
-            <%= render 'goods/good_btn', result: @result %>
-          </span>
-
-          <span class="comment">
-            <span class="margin-right10"><i class="far fa-comment fa-lg"></i></span> <%= @comments.count %>
-          </span>    
+          <div class="text-center">
+            <span id="good_btn_<%= @result.id %>">
+              <%= render 'goods/good_btn', result: @result %>
+            </span>
+          </div>
         </div>
-        
 
         <div class="margin-top20">
           <%= simple_format(@result.detail) %>
@@ -56,36 +51,34 @@
             <i class="fab fa-github fa-lg"></i> <a href="<%= @result.github %>" target="_blank"><%= @result.github %></a>
           </div>
         <% end %>
-        
       </div>
     </div>
 
     <%# コメント欄 %>
-    <div class="panel">
-      <div class="panel-body">
-        <div id="comment">
-          <%= render 'comments/comments', comments: @comments, result: @result %>
-        </div>
-
-        <div class="partition margin-top20 margin-bottom20"></div>
-        <%= form_for(@comment, remote: true) do |f| %>
-          <div class="form-group ">
-            <%= f.label :comment do %>
-              <i class="far fa-comment"></i> コメントを投稿する (最大225文字)
-            <% end %>
-            <div id="error"></div>
-            <%= f.text_area :comment, id: 'comment_field', placeholder: 'コメントを入力してください', class: 'form-control', rows: 5, required: true %>
-          </div>
-          <%= hidden_field_tag :result_id, @result.id %>
-          <%= f.submit '投稿', class: 'btn btn-info pull-right' %>
-        <% end %>
+    <div class="panel-body">
+      <div id="comment">
+        <%= render 'comments/comments', comments: @comments, result: @result %>
       </div>
+
+      <div class="partition margin-top20 margin-bottom20"></div>
+
+      <%= form_for(@comment, remote: true) do |f| %>
+        <div class="form-group">
+          <%= f.label :comment, 'コメントを投稿する (最大225文字)' %>
+            
+          <div id="error"></div>
+          
+          <%= f.text_area :comment, id: 'comment_field', placeholder: 'コメントを入力してください', class: 'form-control', rows: 5, required: true %>
+        </div>
+        <%= hidden_field_tag :result_id, @result.id %>
+        <%= f.submit '投稿', class: 'btn btn-info pull-right' %>
+      <% end %>
     </div>
   </div>
 
   <div class="col-sm-3 col-sm-pull-9">
-    <div class="panel">
-      <div class="panel-heading partition text-center">
+    <div class="panel panel-default">
+      <div class="panel-heading text-center">
         制作者
       </div>
       <div class="panel-body">
