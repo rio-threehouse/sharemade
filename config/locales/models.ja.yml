@@ -7,9 +7,11 @@ ja:
       user: 
         email: メールアドレス
         password: パスワード
-        name: 名前
+        name: ユーザー名
         password_confirmation: 確認用パスワード
         remember_me: 次回から自動的にログイン
+        yourself: 自己紹介
+        skill: 言語・スキル
       result:
         subtitle: サブタイトル
         title: タイトル
