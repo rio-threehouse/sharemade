@@ -60,4 +60,5 @@ end
 
 gem 'carrierwave'
 
-gem 'mini_magick'
+# herokuでデプロイできたらコメントアウトして設定する
+# gem 'mini_magick'

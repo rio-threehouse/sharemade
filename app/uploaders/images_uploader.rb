@@ -1,9 +1,12 @@
 class ImagesUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  include CarrierWave::MiniMagick
 
-  process resize_to_limit: [600, 250]
+  # herokuでデプロイできたらコメントアウトして設定する
+  # include CarrierWave::MiniMagick
+
+   # herokuでデプロイできたらコメントアウトして設定する
+  # process resize_to_limit: [600, 250]
 
   # Choose what kind of storage to use for this uploader:
   storage :file
