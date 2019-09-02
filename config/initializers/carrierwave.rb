@@ -8,7 +8,7 @@ if Rails.env.production?
       region: 'ap-northeast-1'
     }
 
-    config.fog_directory = "sharemade-img"
+    config.fog_directory = "sharemade-image"
   end
 
   # 日本語ファイル名の設定 secure_tokenにしているからいらない？
