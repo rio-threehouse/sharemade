@@ -62,5 +62,4 @@ gem 'carrierwave'
 
 gem 'fog-aws'
 
-# herokuでデプロイできたらコメントアウトして設定する
-# gem 'mini_magick'
+gem 'mini_magick'

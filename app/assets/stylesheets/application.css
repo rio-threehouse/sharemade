@@ -239,9 +239,13 @@ footer {
   border-radius: 5px;
 }
 
+.image-box {
+  padding: 10px;
+}
+
 .img {
-  max-width: 90%;
-  height: auto;
+  max-width: 100%;
+  max-height: 400px;
   border: 1px solid #f1f1f1;
   box-shadow: 5px 5px 10px -5px #c0c0c0;
 }
@@ -295,7 +299,6 @@ footer {
 
 .result .panel-heading .img {
   height: 100%;
-  max-width: 100%;
 }
 
 .result .panel-body {
