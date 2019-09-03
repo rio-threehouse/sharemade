@@ -10,14 +10,11 @@ class GoodsController < ApplicationController
     current_user.good(@result)
     # reloadを実行するとデータベースの値を取得しています。 カウント調整
     @result.reload
-
-    # redirect_back(fallback_location: results_path)
   end
 
   def destroy
     @result = Result.find(params[:result_id])
     current_user.ungood(@result)
     @result.reload
-    # redirect_back(fallback_location: results_path)
   end
 end

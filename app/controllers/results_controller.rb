@@ -2,10 +2,6 @@ class ResultsController < ApplicationController
   before_action :authenticate_user!
   before_action :correct_user, only: [:edit, :update, :destroy]
 
-  def index
-    @results = Result.all.order('created_at DESC')
-  end
-
   def show
     @result = Result.find(params[:id])
     @comments = Comment.where(result_id: @result.id)

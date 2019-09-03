@@ -1,6 +1,19 @@
 <% if user_signed_in? %>
-  <h3>Sharemadeについて</h3>
-  <p>準備中…</p>
+ <%# 最新の作品 %>
+  <div class="row">
+    <div class="col-sm-9 col-sm-push-3">
+      <div class="home-content b-bottom margin-bottom10"><i class="fas fa-share-alt icon background"></i> 最新の作品</div>
+        <% if @results == [] %>
+          <div class="text-muted eachcontent">
+            作品はありません
+          </div>
+        <% end %>
+        <%= render 'results/results', results: @results %>
+      </div>
+
+      <%= render 'layouts/home_nav'%>
+    </div>
+  </div>
 <% else %>
   <div class="welcome text-center">
     <h1 class="welcometitle">Sharemade <i class="fas fa-share-alt"></i></h1>
