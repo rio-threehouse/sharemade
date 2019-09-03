@@ -6,12 +6,16 @@
   <% end %>
   <%= link_to comment.user.name, user_path(comment.user) %>
   <span class="pull-right text-muted margin-right10"><%= comment.created_at.strftime('%Y/%m/%d') %></span>
-  <% if comment.user == current_user %>
+  <% if comment.user == current_user%>
     <span class="pull-right margin-right10">
       <%= link_to comment_path(comment), method: :delete, class: 'text-danger', data: { confirm: '本当に削除しますか？'}, remote: true do %>
         <i class="fas fa-trash-alt"></i>
       <% end %>
     </span>
+  <% end %>
+
+  <% if current_user.admin? %>
+    <%= link_to '不正なコメント', comment_path(comment), method: :delete, class: 'text-danger pull-right', data: { confirm: '管理者権限でこのコメントを削除しますか？'}, remote: true %>
   <% end %>
   <div class="box margin-bottom10"><%= simple_format(comment.comment) %></div>
 <% end %>

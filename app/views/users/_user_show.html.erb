@@ -14,6 +14,16 @@
         <% if user == current_user %>
           <a href="/users/edit" class="pull-right"><i class="fas fa-user-edit"></i>プロフィール編集</a>
         <% end %>
+
+        <% if current_user.admin? %>
+          <%= form_for(user, url:user_registration_path(user),
+                        html: { method: :delete }, 
+                        data: {confirm: '管理者権限でこのアカウントを削除しますか？'},
+                        class: 'btn btn-danger') do |f| %>
+            <%= hidden_field_tag :user_id, user.id %>
+            <%= f.submit '不正なアカウント', class: 'btn btn-danger' %>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>

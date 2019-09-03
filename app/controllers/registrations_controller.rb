@@ -10,4 +10,15 @@ class RegistrationsController < Devise::RegistrationsController
       render 'edit'
     end
   end
+
+  def destroy
+    @user = User.find(params[:user_id])
+    if @user == current_user || current_user.admin?
+      @user.destroy
+      flash[:info] = 'アカウントを削除しました。またのご利用をお待ちしています。'
+      redirect_to root_url
+    else
+      redirect_to root_url
+    end
+  end
 end

@@ -39,7 +39,7 @@ class ResultsController < ApplicationController
   def destroy
     @result.destroy
     flash[:danger] = "作品を削除しました"
-    redirect_to user_url(current_user)
+    redirect_to user_url(@result.user)
   end
 
   private
@@ -50,8 +50,11 @@ class ResultsController < ApplicationController
 
   def correct_user
     @result = current_user.results.find_by(id: params[:id])
-    unless @result
-      redirect_to results_url
+    if  current_user.admin?
+      @result = Result.find(params[:id])
+    elsif @result == nil
+      redirect_to root_url
     end
+
   end
 end

@@ -51,6 +51,13 @@
             <i class="fab fa-github fa-lg"></i> <a href="<%= @result.github %>" target="_blank"><%= @result.github %></a>
           </div>
         <% end %>
+
+        <% if current_user.admin? %>
+          <%= link_to '不正な作品', result_path(@result), 
+                                    method: :delete,
+                                    data: { confirm: '管理者権限でこの作品を削除しますか？'},
+                                    class: 'btn btn-danger' %>
+        <% end %>
       </div>
     </div>
 
