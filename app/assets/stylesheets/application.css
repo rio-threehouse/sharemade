@@ -256,7 +256,7 @@ footer {
 }
 
 .no_img_content {
-  line-height: 200px;
+  line-height: 177px;
 }
 
 .top-content {
@@ -295,6 +295,11 @@ footer {
 
 .result .panel-heading {
   height: 200px;
+}
+
+.new-label {
+  background: #ff3a3ab9;
+  color: #fff;
 }
 
 .result .panel-heading .img {

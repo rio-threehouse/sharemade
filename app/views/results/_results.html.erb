@@ -13,6 +13,10 @@
                 NO IMAGE
               </div>
             <% end %>
+
+            <% if result.created_at > Time.current.ago(6.days) %>
+              <div class="new-label">NEW</div>
+            <% end %>
           </div>
 
           <div class="panel-body">
