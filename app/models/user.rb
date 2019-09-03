@@ -26,4 +26,18 @@ class User < ApplicationRecord
   end
 
   has_many :comments, dependent: :destroy
+
+  # アップデートをcurrent_passwordなし行うためのメソッド
+  def update_without_current_password(params, *options)
+    params.delete(:current_password)
+
+    if params[:password].blank?
+      params.delete(:password)
+      params.delete(:password_confirmation) if params[:password_confirmation].blank?
+    end
+
+    result = update_attributes(params, *options)
+    clean_up_passwords
+    result
+  end
 end

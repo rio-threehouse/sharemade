@@ -39,10 +39,7 @@
         <% end %>
 
         <div class="field form-group">
-          <%= f.label :password %> 
-          <% if @minimum_password_length %>
-            <em>( <%= @minimum_password_length %>文字以上 )</em><br />
-          <% end %>
+          <%= f.label :password, "パスワード（6文字以上）" %> 
           <%= f.password_field :password, autocomplete: "new-password", class: 'form-control', placeholder: '変更しない場合は空白' %>
         </div>
 

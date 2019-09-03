@@ -1,12 +1,13 @@
 class RegistrationsController < Devise::RegistrationsController
 
-  protected
-
-  def after_update_path_for(resource)
-    edit_user_registration_path(resource)
-  end
-
-  def update_resource(resource, params)
-    resource.update_without_password(params)
+  def update
+    @user = User.find(current_user.id)
+    if @user.update_without_current_password(account_update_params)
+      sign_in @user, bypass: true
+      set_flash_message :notice, :updated
+      redirect_to user_url(@user)
+    else
+      render 'edit'
+    end
   end
 end
