@@ -1,0 +1,15 @@
+<% unless user_signed_in? %>
+  <div class="welcome text-center">
+    <h1 class="welcometitle">Sharemade <i class="fas fa-share-alt"></i></h1>
+    <span>みんなの「作った」をシェアする</span>
+    
+    <div class="welcomecontent">
+      <h5>自分で作ったアプリやサイトの共有スペース</h5>
+      <h5>ポートフォリオを登録しよう!</h5>
+    </div>
+    
+      
+    <a class='btn welcomebtn' href="/users/sign_up">アカウント作成</a>
+    <a class='btn welcomebtn' href="/users/sign_in">ログイン</a>
+  </div>
+<% end %>

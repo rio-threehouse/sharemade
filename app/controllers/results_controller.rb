@@ -1,11 +1,13 @@
 class ResultsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:show]
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   def show
     @result = Result.find(params[:id])
     @comments = Comment.where(result_id: @result.id)
-    @comment = current_user.comments.build
+    if user_signed_in?
+      @comment = current_user.comments.build
+    end
   end
 
   def new

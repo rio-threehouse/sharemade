@@ -2,22 +2,23 @@
   <div class="container">
     <a href="/" class='navlogo'>Sharemade</a>
 
-    <% if user_signed_in? %>
-      <span class="dropdown">
-        <button class="btn navpull dropdown-toggle" type="button" data-toggle="dropdown">
-          <i class="far fa-caret-square-down"></i>
-        </button>
-        <ul class="dropdown-menu" role="menu">
-          <li><a href='/'><i class="fas fa-share-alt"></i> 最新の作品</a></li>
-          <li class="divider"></li>
-          <li><a href='/good_ranking'><i class="fas fa-crown"></i> いいねランキング</a></li>
-          <li class="divider"></li>
-          <li><a href='/users'><i class="fas fa-users"></i> ユーザー</a></li>
-          <li class="divider"></li>
-          <%# <li><a href='/about_sharemade'>Sharemadeについて</a></li> %>
-        </ul>
-      </span>
+    
+    <span class="dropdown">
+      <button class="btn navpull dropdown-toggle" type="button" data-toggle="dropdown">
+        <i class="far fa-caret-square-down"></i>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href='/'><i class="fas fa-share-alt"></i> 最新の作品</a></li>
+        <li class="divider"></li>
+        <li><a href='/good_ranking'><i class="fas fa-crown"></i> いいねランキング</a></li>
+        <li class="divider"></li>
+        <li><a href='/users'><i class="fas fa-users"></i> ユーザー</a></li>
+        <li class="divider"></li>
+        <%# <li><a href='/about_sharemade'>Sharemadeについて</a></li> %>
+      </ul>
+    </span>
 
+    <% if user_signed_in? %>
       <span class="dropdown pull-right navicon">
         <button class=" btn dropdown-toggle background" type="button" data-toggle="dropdown">
           <span class="naviconfont"><i class="fas fa-user-circle"></i> <i class="fas fa-caret-down"></i></span>
@@ -38,7 +39,7 @@
       </span>
 
       <%= link_to new_result_path, class:'white' do %>
-        <span class="btn pull-right signin-navfont margin-top10">
+        <span class="btn pull-right result-new margin-top10">
           <i class="fas fa-edit"></i> 作品登録
         </span>
       <% end %>

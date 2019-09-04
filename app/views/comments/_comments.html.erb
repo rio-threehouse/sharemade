@@ -14,8 +14,9 @@
     </span>
   <% end %>
 
-  <% if current_user.admin? %>
-    <%= link_to '不正なコメント', comment_path(comment), method: :delete, class: 'text-danger pull-right', data: { confirm: '管理者権限でこのコメントを削除しますか？'}, remote: true %>
+  <% if user_signed_in? == false %>
+  <% elsif current_user.admin? %>
+    <%= link_to '不正なコメント', comment_path(comment), method: :delete, class: 'btn btn-danger btn-xs', data: { confirm: '管理者権限でこのコメントを削除しますか？'}, remote: true %>
   <% end %>
   <div class="box margin-bottom10"><%= simple_format(comment.comment) %></div>
 <% end %>

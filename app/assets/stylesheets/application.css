@@ -103,12 +103,12 @@ footer {
 
 .navfont {
   font-size: 12px;
-  margin: 10px 0 0 15px;
+  margin: 10px 0 0 3px;
 }
 
-.signin-navfont {
+.result-new {
   font-size: 13px;
-  background: #1ec6cc;
+  background: #27a9ad;
 }
 
 .signup {
@@ -120,7 +120,7 @@ footer {
 }
 
 .welcome {
-  padding: 50px 40px 150px 40px;
+  padding: 50px 40px 80px 40px;
   color: #fff;
   background-color: #f7f7f7;
   background: #08d1d8;
@@ -319,4 +319,10 @@ footer {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden; 
+}
+
+.comment-signin {
+  padding: 10px;
+  background: #d7e8e9;
+  border-radius: 15px;
 }

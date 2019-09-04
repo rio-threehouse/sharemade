@@ -4,20 +4,22 @@
     <li role="presentation" class="<%= 'active' if current_page?(good_ranking_path) %>"><a href="/good_ranking"><i class="fas fa-crown"></i> いいねランキング</a></li>
     <li role="presentation" class="<%= 'active' if current_page?(users_path) %>"><a href="/users"><i class="fas fa-users"></i> ユーザー</a></li>
 
-    <div class="partition margin-top10 margin-bottom10"></div>
+    <% if user_signed_in? %>
+      <div class="partition margin-top10 margin-bottom10"></div>
+    
+      <li role="presentation">
+        <%= link_to user_path(current_user) do %>
+          <i class="fas fa-user"></i> マイページ
+        <% end %>
+      </li>
+      <li role="presentation"><a href="/users/edit" ><i class="fas fa-cog"></i> ユーザー情報</a></li>
 
-    <li role="presentation">
-      <%= link_to user_path(current_user) do %>
-        <i class="fas fa-user"></i> マイページ
-      <% end %>
-    </li>
-    <li role="presentation"><a href="/users/edit" ><i class="fas fa-cog"></i> ユーザー情報</a></li>
+      <div class="partition margin-top10 margin-bottom10"></div>
 
-    <div class="partition margin-top10 margin-bottom10"></div>
-
-    <li>
-      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？" } %>
-    </li>
+      <li>
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？" } %>
+      </li>
+    <% end %>
 
   </ul>
 </div>

@@ -1,13 +1,15 @@
-<div class="row">
-  <div class="col-sm-3 margin-top20">
-    <ul class="nav nav-pills nav-stacked">
-      <li role="presentation" class="active">
-        <a href="" style="pointer-events: none;" ><i class="fas fa-edit"></i> 作品登録</a>
-      </li>
-    </ul>
-  </div>
+<div class="container margin-top10">
+  <div class="row">
+    <div class="col-sm-3 margin-top20">
+      <ul class="nav nav-pills nav-stacked">
+        <li role="presentation" class="active">
+          <a href="" style="pointer-events: none;" ><i class="fas fa-edit"></i> 作品登録</a>
+        </li>
+      </ul>
+    </div>
 
-  <div class="col-sm-9 margin-top20">
-    <%= render 'results/result_form', result: @result %>
+    <div class="col-sm-9 margin-top20">
+      <%= render 'results/result_form', result: @result %>
+    </div>
   </div>
 </div>

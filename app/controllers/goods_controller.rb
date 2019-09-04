@@ -1,5 +1,5 @@
 class GoodsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index]
 
   def index
     @results = Result.find(Good.group(:result_id).order('count(result_id) DESC').limit(20).pluck(:result_id))
