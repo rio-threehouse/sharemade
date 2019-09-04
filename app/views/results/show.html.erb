@@ -64,34 +64,36 @@
       </div>
 
       <%# コメント欄 %>
-      <div class="panel-body">
-        <div id="comment">
-          <%= render 'comments/comments', comments: @comments, result: @result %>
-        </div>
-
-        <div class="partition margin-top20 margin-bottom20"></div>
-
-        <% if user_signed_in? %>
-          <%= form_for(@comment, remote: true) do |f| %>
-            <div class="form-group">
-              <%= f.label :comment, 'コメントを投稿する (最大225文字)' %>
-                
-              <div id="error"></div>
-              
-              <%= f.text_area :comment, id: 'comment_field', placeholder: 'コメントを入力してください', class: 'form-control', rows: 5, required: true %>
-            </div>
-            <%= hidden_field_tag :result_id, @result.id %>
-            <%= f.submit '投稿', class: 'btn btn-info pull-right' %>
-          <% end %>
-        <% else %>
-          <div class="text-center comment-signin">
-            <div class="margin-bottom20"><b>アカウントを登録して感想を伝えよう！！</b></div>
-            <a class='btn btn-info margin-bottom20' href="/users/sign_up">アカウント作成</a><br>
-            <span>アカウントをお持ちの方は</span><%= link_to "ログイン", '/users/sign_in' %>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div id="comment">
+            <%= render 'comments/comments', comments: @comments, result: @result %>
           </div>
-        <% end %>
+
+          <div class="partition margin-top20 margin-bottom20"></div>
+
+          <% if user_signed_in? %>
+            <%= form_for(@comment, remote: true) do |f| %>
+              <div class="form-group">
+                <%= f.label :comment, 'コメントを投稿する (最大225文字)' %>
+                  
+                <div id="error"></div>
+                
+                <%= f.text_area :comment, id: 'comment_field', placeholder: 'コメントを入力してください', class: 'form-control', rows: 5, required: true %>
+              </div>
+              <%= hidden_field_tag :result_id, @result.id %>
+              <%= f.submit '投稿', class: 'btn btn-info pull-right' %>
+            <% end %>
+          <% else %>
+            <div class="text-center comment-signin">
+              <div class="margin-bottom20"><b>アカウントを登録して感想を伝えよう！！</b></div>
+              <a class='btn btn-info margin-bottom20' href="/users/sign_up">アカウント作成</a><br>
+              <span>アカウントをお持ちの方は</span><%= link_to "ログイン", '/users/sign_in' %>
+            </div>
+          <% end %>
         </div>
       </div>
+    </div>
 
     <div class="col-sm-3 col-sm-pull-9">
       <div class="panel panel-default">

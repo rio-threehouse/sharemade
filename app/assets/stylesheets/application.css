@@ -56,6 +56,7 @@ header {
 
 body {
   word-wrap: break-word;
+  background: #75695e1a;
 }
 
 footer {
@@ -122,36 +123,44 @@ footer {
 .welcome {
   padding: 50px 40px 80px 40px;
   color: #fff;
-  background-color: #f7f7f7;
-  background: #08d1d8;
+  background-color: #08d1d8;
+  background-image: url("/images/topimg.png");
+  background-size: contain;
+  background-position: center;
 }
 
 .welcometitle {
   font-weight: 700;
   margin-bottom: 0;
+  font-size: 32px;
 }
 
 .welcomecontent {
-  margin-top: 25px;
+  background: #424242da;
+  padding: 4px;
+  border-radius: 15px;
+  width: 300px;
+  margin: 20px auto auto auto ;
 }
 
 .welcomebtn {
   color: #fff;
-  border: 1px solid #35a3a7;
+  border: 2px solid #10bac0;
   margin: 20px 15px;
-  background: #35a3a7
+  background: #10bac0;
 }
 
 .welcomebtn:hover {
   color: #fff;
   background: #18868a;
+  border-color: #18868a;
 }
 
 .nomalbtn {
   color: #08d1d8;
   border: 2px solid #08d1d8;
-  background: #fff;
   padding: 6px 30px;
+  background-color: transparent;
 }
 
 .nomalbtn:hover,
@@ -302,7 +311,7 @@ footer {
 }
 
 .new-label {
-  background: #ff3a3ab9;
+  background: #cf1414;
   color: #fff;
 }
 
