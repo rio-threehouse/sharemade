@@ -5,6 +5,7 @@ class ResultsController < ApplicationController
   def show
     @result = Result.find(params[:id])
     @comments = Comment.where(result_id: @result.id)
+    add_visit_count(@result)
     if user_signed_in?
       @comment = current_user.comments.build
     end
@@ -57,6 +58,10 @@ class ResultsController < ApplicationController
     elsif @result == nil
       redirect_to root_url
     end
+  end
 
+  def add_visit_count(result)
+    result.visit = result.visit + 1
+    result.update(visit: result.visit)
   end
 end
