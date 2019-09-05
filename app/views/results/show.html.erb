@@ -86,8 +86,8 @@
             <% end %>
           <% else %>
             <div class="text-center comment-signin">
-              <div class="margin-bottom20"><b>アカウントを登録して感想を伝えよう！！</b></div>
-              <a class='btn btn-info margin-bottom20' href="/users/sign_up">アカウント作成</a><br>
+              <div><b>コメントに参加しませんか？</b></div>
+              <a class='btn welcomebtn' href="/users/sign_up">アカウント登録</a><br>
               <span>アカウントをお持ちの方は</span><%= link_to "ログイン", '/users/sign_in' %>
             </div>
           <% end %>
@@ -109,6 +109,15 @@
           <% end %>
         </div>
       </div>
+
+      <% unless user_signed_in? %>
+        <div class="text-center comment-signin">
+          <div><b>自分の作ったアプリやサイトを<br>登録しませんか？</b></div>
+            <a class='btn welcomebtn' href="/users/sign_up">アカウント登録</a><br>
+            <span>アカウントをお持ちの方は</span><%= link_to "ログイン", '/users/sign_in' %>
+          </div>
+        </div>
+      <% end %>
     </div>
 
   </div>
