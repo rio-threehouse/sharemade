@@ -1,4 +1,4 @@
-<% unless user_signed_in? %>
+<% if current_page?(root_path) || current_page?(users_path) || current_page?(good_ranking_path) %>
   <div class="welcome text-center">
     <h1 class="welcometitle">Sharemade <i class="fas fa-share-alt"></i></h1>
     <span>みんなの「作った」をシェアする</span>

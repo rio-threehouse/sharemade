@@ -1,57 +1,56 @@
-<div class="container margin-top10">
-  <div class="row margin-top20">
+<%# ユーザー詳細 %>
+<div class="row margin-top20">
 
-    <div class="col-sm-3">
-      <div class="panel panel-default">
-        <div class="panel-heading partition text-center">
-          <span><%= user.name %></span>
-        </div>
-        <div class="panel-body">
-          <p><%= user.yourself %></p>
-          <% unless user.skill == "" %>
-            <b>▷言語・スキル</b>
-            <p><%= user.skill %></p>
-          <% end %>
-          <% if user == current_user %>
-            <a href="/users/edit" class="pull-right"><i class="fas fa-user-edit"></i>プロフィール編集</a>
-          <% end %>
-
-          <% if user_signed_in? == false %>
-          <% elsif current_user.admin? %>
-            <%= form_for(user, url:user_registration_path(user),
-                          html: { method: :delete }, 
-                          data: {confirm: '管理者権限でこのアカウントを削除しますか？'},
-                          class: 'btn btn-danger') do |f| %>
-              <%= hidden_field_tag :user_id, user.id %>
-              <%= f.submit '不正なアカウント', class: 'btn btn-danger margin-top10' %>
-            <% end %>
-          <% end %>
-        </div>
+  <div class="col-sm-3">
+    <div class="panel panel-default">
+      <div class="panel-heading partition text-center">
+        <span><%= user.name %></span>
       </div>
-    </div>
-
-    <div class="col-sm-9">
-      <%= link_to user_path(user), style: 'text-decoration: none' do %>
-        <span class="btn nomalbtn <%= 'now' if current_page?(user_path(user)) %>">
-          作品 <span class="badge"><%= user.results.count %></span>
-        </span>
-      <% end %>
-      
-      <%= link_to goods_user_path(user), style: 'text-decoration: none' do %>
-        <span class="btn goodbtn <%= 'now' if current_page?(goods_user_path(user)) %>">
-          いいねした作品 <span class="badge"><%= user.good_results.count %></span>
-        </span>
-      <% end %>
-
-      <div class="margin-top10">
-        <% if results == [] %>
-          <div class="text-muted eachcontent">
-            作品はありません
-          </div>
+      <div class="panel-body">
+        <p><%= user.yourself %></p>
+        <% unless user.skill == "" %>
+          <b>▷言語・スキル</b>
+          <p><%= user.skill %></p>
+        <% end %>
+        <% if user == current_user %>
+          <a href="/users/edit" class="pull-right"><i class="fas fa-user-edit"></i>プロフィール編集</a>
         <% end %>
 
-        <%= render 'results/results', results: results %>
+        <% if user_signed_in? == false %>
+        <% elsif current_user.admin? %>
+          <%= form_for(user, url:user_registration_path(user),
+                        html: { method: :delete }, 
+                        data: {confirm: '管理者権限でこのアカウントを削除しますか？'},
+                        class: 'btn btn-danger') do |f| %>
+            <%= hidden_field_tag :user_id, user.id %>
+            <%= f.submit '不正なアカウント', class: 'btn btn-danger margin-top10' %>
+          <% end %>
+        <% end %>
       </div>
+    </div>
+  </div>
+
+  <div class="col-sm-9">
+    <%= link_to user_path(user), style: 'text-decoration: none' do %>
+      <span class="btn nomalbtn <%= 'now' if current_page?(user_path(user)) %>">
+        作品 <span class="badge"><%= user.results.count %></span>
+      </span>
+    <% end %>
+    
+    <%= link_to goods_user_path(user), style: 'text-decoration: none' do %>
+      <span class="btn goodbtn <%= 'now' if current_page?(goods_user_path(user)) %>">
+        いいねした作品 <span class="badge"><%= user.good_results.count %></span>
+      </span>
+    <% end %>
+
+    <div class="margin-top10">
+      <% if results == [] %>
+        <div class="text-muted eachcontent">
+          作品はありません
+        </div>
+      <% end %>
+
+      <%= render 'results/results', results: results %>
     </div>
   </div>
 </div>

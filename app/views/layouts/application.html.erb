@@ -19,7 +19,19 @@
     <%= render 'layouts/navbar' %>
     <%= render 'layouts/flash_messages' %>
     
-    <%= yield %>
+    <% if user_signed_in? %>
+    <%# ログイン中 %>
+      <div class="container margin-top10">
+        <%= yield %>
+      </div>
+    <% else %>
+    <%# ログイン前 %>
+      <%= render 'layouts/welcome'%>
+      <div class="container margin-top10">
+        <%= yield %>
+      </div>
+    <% end %>
+     
 
     <footer>
     </footer>

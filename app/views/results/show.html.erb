@@ -1,124 +1,123 @@
-<div class="container margin-top10">
-  <div class="row margin-top20">
-    <div class="col-sm-9 col-sm-push-3">
-      <div class='panel panel-default'>
-        <div class="panel-body result">
-          <% if @result.user == current_user %>
-            <%= link_to edit_result_path(@result) do %>
-              <div class="text-right margin-bottom10">
-                <i class="fas fa-pencil-ruler"></i> 編集する
-              </div>
-            <% end %>
-          <% end %>
-
-          <div class="border-left">
-            <div class="padding-left">
-              <small><%= @result.subtitle %></small>
-              <h3 class="title"><%= @result.title %></h3>
-              by <%= link_to @result.user.name, user_path(@result.user) %>
-            </div>
-          </div>
-
-          <div class="row">
-          <div class="text-center image-box margin-bottom10">
-            <% if @result.image.url != nil %>
-              <%= image_tag @result.image.url, class: 'img' %>
-            <% else %>
-              <img src="/images/no_img.png" alt="no_image" class="no_img">
-              NO IMAGE
-            <% end %>
-          </div>
-          </div>
-      
-          <div class="margin-bottom20">
-            <a href="<%= @result.url %>" target="_blank" class="btn btn-info btn-block">
-              <i class="fas fa-external-link-alt"></i> 作品を見る
-            </a>
-            <div class="margin-bottom10">（ URL：<%= @result.url %> ）</div>
-
-            <div class="text-center">
-              <span id="good_btn_<%= @result.id %>">
-                <%= render 'goods/good_btn', result: @result %>
-              </span>
-            </div>
-          </div>
-
-          <div class="margin-top20">
-            <%= simple_format(@result.detail) %>
-          </div>
-          
-          <% if @result.github != "" %>
-            <div class="margin-top10">
-              <i class="fab fa-github fa-lg"></i> <a href="<%= @result.github %>" target="_blank"><%= @result.github %></a>
+<%# 作品詳細 %>
+<div class="row margin-top20">
+  <div class="col-sm-9 col-sm-push-3">
+    <div class='panel panel-default'>
+      <div class="panel-body result">
+        <% if @result.user == current_user %>
+          <%= link_to edit_result_path(@result) do %>
+            <div class="text-right margin-bottom10">
+              <i class="fas fa-pencil-ruler"></i> 編集する
             </div>
           <% end %>
+        <% end %>
 
-          <% if user_signed_in? == false %>
-          <% elsif current_user.admin? %>
-            <%= link_to '不正な作品', result_path(@result), 
-                                      method: :delete,
-                                      data: { confirm: '管理者権限でこの作品を削除しますか？'},
-                                      class: 'btn btn-danger margin-top10' %>
-          <% end %>
+        <div class="border-left">
+          <div class="padding-left">
+            <small><%= @result.subtitle %></small>
+            <h3 class="title"><%= @result.title %></h3>
+            by <%= link_to @result.user.name, user_path(@result.user) %>
+          </div>
         </div>
-      </div>
 
-      <%# コメント欄 %>
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <div id="comment">
-            <%= render 'comments/comments', comments: @comments, result: @result %>
-          </div>
-
-          <div class="partition margin-top20 margin-bottom20"></div>
-
-          <% if user_signed_in? %>
-            <%= form_for(@comment, remote: true) do |f| %>
-              <div class="form-group">
-                <%= f.label :comment, 'コメントを投稿する (最大225文字)' %>
-                  
-                <div id="error"></div>
-                
-                <%= f.text_area :comment, id: 'comment_field', placeholder: 'コメントを入力してください', class: 'form-control', rows: 5, required: true %>
-              </div>
-              <%= hidden_field_tag :result_id, @result.id %>
-              <%= f.submit '投稿', class: 'btn btn-info pull-right' %>
-            <% end %>
+        <div class="row">
+        <div class="text-center image-box margin-bottom10">
+          <% if @result.image.url != nil %>
+            <%= image_tag @result.image.url, class: 'img' %>
           <% else %>
-            <div class="text-center comment-signin">
-              <div><b>コメントに参加しませんか？</b></div>
-              <a class='btn welcomebtn' href="/users/sign_up">アカウント登録</a><br>
-              <span>アカウントをお持ちの方は</span><%= link_to "ログイン", '/users/sign_in' %>
-            </div>
+            <img src="/images/no_img.png" alt="no_image" class="no_img">
+            NO IMAGE
           <% end %>
         </div>
+        </div>
+    
+        <div class="margin-bottom20">
+          <a href="<%= @result.url %>" target="_blank" class="btn btn-info btn-block">
+            <i class="fas fa-external-link-alt"></i> 作品を見る
+          </a>
+          <div class="margin-bottom10">（ URL：<%= @result.url %> ）</div>
+
+          <div class="text-center">
+            <span id="good_btn_<%= @result.id %>">
+              <%= render 'goods/good_btn', result: @result %>
+            </span>
+          </div>
+        </div>
+
+        <div class="margin-top20">
+          <%= simple_format(@result.detail) %>
+        </div>
+        
+        <% if @result.github != "" %>
+          <div class="margin-top10">
+            <i class="fab fa-github fa-lg"></i> <a href="<%= @result.github %>" target="_blank"><%= @result.github %></a>
+          </div>
+        <% end %>
+
+        <% if user_signed_in? == false %>
+        <% elsif current_user.admin? %>
+          <%= link_to '不正な作品', result_path(@result), 
+                                    method: :delete,
+                                    data: { confirm: '管理者権限でこの作品を削除しますか？'},
+                                    class: 'btn btn-danger margin-top10' %>
+        <% end %>
       </div>
     </div>
 
-    <div class="col-sm-3 col-sm-pull-9">
-      <div class="panel panel-default">
-        <div class="panel-heading text-center">
-          制作者
+    <%# コメント欄 %>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div id="comment">
+          <%= render 'comments/comments', comments: @comments, result: @result %>
         </div>
-        <div class="panel-body">
-          <b><i class="fas fa-user"></i> <%= link_to @result.user.name, user_path(@result.user) %></b>
-          <p><%= @result.user.yourself %></p>
-          <% unless @result.user.skill == "" %>
-            <b>▷言語・スキル</b>
-            <p><%= @result.user.skill %></p>
-          <% end %>
-        </div>
-      </div>
 
-      <% unless user_signed_in? %>
-        <div class="text-center comment-signin">
-          <div><b>自分の作ったアプリやサイトを<br>登録しませんか？</b></div>
+        <div class="partition margin-top20 margin-bottom20"></div>
+
+        <% if user_signed_in? %>
+          <%= form_for(@comment, remote: true) do |f| %>
+            <div class="form-group">
+              <%= f.label :comment, 'コメントを投稿する (最大225文字)' %>
+                
+              <div id="error"></div>
+              
+              <%= f.text_area :comment, id: 'comment_field', placeholder: 'コメントを入力してください', class: 'form-control', rows: 5, required: true %>
+            </div>
+            <%= hidden_field_tag :result_id, @result.id %>
+            <%= f.submit '投稿', class: 'btn btn-info pull-right' %>
+          <% end %>
+        <% else %>
+          <div class="text-center comment-signin">
+            <div><b>コメントに参加しませんか？</b></div>
             <a class='btn welcomebtn' href="/users/sign_up">アカウント登録</a><br>
             <span>アカウントをお持ちの方は</span><%= link_to "ログイン", '/users/sign_in' %>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-3 col-sm-pull-9">
+    <div class="panel panel-default">
+      <div class="panel-heading text-center">
+        制作者
+      </div>
+      <div class="panel-body">
+        <b><i class="fas fa-user"></i> <%= link_to @result.user.name, user_path(@result.user) %></b>
+        <p><%= @result.user.yourself %></p>
+        <% unless @result.user.skill == "" %>
+          <b>▷言語・スキル</b>
+          <p><%= @result.user.skill %></p>
+        <% end %>
+      </div>
     </div>
 
+    <% unless user_signed_in? %>
+      <div class="text-center comment-signin">
+        <div><b>自分の作ったアプリやサイトを<br>登録しませんか？</b></div>
+          <a class='btn welcomebtn' href="/users/sign_up">アカウント登録</a><br>
+          <span>アカウントをお持ちの方は</span><%= link_to "ログイン", '/users/sign_in' %>
+        </div>
+      </div>
+    <% end %>
   </div>
+
 </div>
