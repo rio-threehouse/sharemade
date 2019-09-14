@@ -53,6 +53,13 @@
           </div>
         <% end %>
 
+        <div class="partition margin-top20 margin-bottom10"></div>
+
+        <div class="text-center">
+          <p><b>Twitterでこの作品を共有しよう！</b></p>
+          <a class="btn tweetbtn" target="_blank" href="https://twitter.com/intent/tweet?text=<%= @result.subtitle %>〜<%= @result.title %>〜%0a&url=<%= request.url %>&hashtags=Sharemade"><i class="fab fa-twitter"></i> Tweetへ移動</a>
+        </div>
+        
         <% if user_signed_in? == false %>
         <% elsif current_user.admin? %>
           <%= link_to '不正な作品', result_path(@result), 
