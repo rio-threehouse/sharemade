@@ -10,6 +10,11 @@
       <meta name="twitter:title" content="<%= @result.subtitle %>〜<%= @result.title %>〜 - Sharemade">
       <meta name="twitter:description" content="<%= @result.detail %>">
       <meta name="twitter:image" content="<%= @result.image %>">
+    <% else %>
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Sharemade~オリジナルアプリやwebサイトの共有スペース~">
+      <meta name="twitter:description" content="みんなが作ったオリジナルアプリ、webサイトが見られます。自分で作ったサイトやアプリを登録して、色々な人に作品を使ってもらいましょう！">
+      <meta name="twitter:image" content="https://sharemade-image.s3-ap-northeast-1.amazonaws.com/images/twitter_card_img.png">
     <% end %>
 
     <title>Sharemade</title>
