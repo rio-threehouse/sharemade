@@ -350,3 +350,13 @@ footer {
   background: #1688cf;
   color: #fff;
 }
+
+/* モーダル */
+.good-modal-content {
+  display: none;
+  background: #d7e8e9;
+  padding: 40px;
+  border-radius: 15px;
+  border: 5px solid rgba(96, 124, 126, 0.658);
+  z-index: 1;
+}
