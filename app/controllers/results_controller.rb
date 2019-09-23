@@ -61,7 +61,7 @@ class ResultsController < ApplicationController
   end
 
   def add_visit_count(result)
-    result.visit = result.visit + 1
+    result.visit += 1
     result.update(visit: result.visit)
   end
 end
