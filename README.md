@@ -19,6 +19,7 @@ Ruby:2.6.2 / Ruby on Rails:5.0.6 / javascript / html / css / git / illustrator
 
 ## 実装機能
 ・ログイン機能  
+・作品登録機能  
 ・いいね機能  
 ・コメント機能  
 ・非同期でいいね、コメント  
