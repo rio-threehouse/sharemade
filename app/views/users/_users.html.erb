@@ -5,6 +5,12 @@
     <% unless user.results == [] %>
       登録した作品 <span class='green'><%= user.results.count %></span> /
     <% end %>
-    いいねした作品 <%= user.good_results.count %>
+    <span class="margin-right5">いいねした作品 <%= user.good_results.count %></span>
+    <% if user.twitter_account != "" %>
+      <a href="https://twitter.com/<%= user.twitter_account %>" target="_blank"><i class="fab fa-twitter-square fa-lg margin-right5"></i></a>
+    <% end %>
+    <% if user.github_account != "" %>
+      <a href="<%= user.github_account %>" target="_blank"><i class="fab fa-github-square fa-lg black"></i></a>
+    <% end %>
   </div>
 <% end %>

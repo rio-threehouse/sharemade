@@ -12,6 +12,16 @@
           <b>▷言語・スキル</b>
           <p><%= user.skill %></p>
         <% end %>
+
+        <div>
+          <% if user.twitter_account != "" %>
+            <a href="https://twitter.com/<%= user.twitter_account %>" target="_blank"><i class="fab fa-twitter-square fa-2x margin-right5"></i></a>
+          <% end %>
+          <% if user.github_account != "" %>
+            <a href="<%= user.github_account %>" target="_blank"><i class="fab fa-github-square fa-2x black"></i></a>
+          <% end %>
+        </div>
+
         <% if user == current_user %>
           <a href="/users/edit" class="pull-right"><i class="fas fa-user-edit"></i>プロフィール編集</a>
         <% end %>

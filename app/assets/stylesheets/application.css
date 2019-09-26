@@ -20,6 +20,10 @@
   margin-bottom: 20px;
 }
 
+.margin-right5 {
+  margin-right: 5px;
+}
+
 .margin-right10 {
   margin-right: 10px;
 }
@@ -42,6 +46,10 @@
 
 .white {
   color: #fff;
+}
+
+.black {
+  color: #3a4141;
 }
 
 .green {
