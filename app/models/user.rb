@@ -5,10 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
          validates :name, presence: true, length: { maximum: 20 }
-         validates :yourself, length: { maximum: 150 }
-         validates :skill, length: {maximum: 150 }
-        #  validates :twitter_account, length: { maximum: 15 }
-        #  validates :github_account, length: { maximum: 50 }
   
   has_many :results, dependent: :destroy
   has_many :goods, dependent: :destroy

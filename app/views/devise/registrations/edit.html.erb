@@ -5,31 +5,15 @@
       <%= render 'layouts/error_messages', model: f.object %>
 
       <div class="panel-heading text-center background white">
-        <i class="fas fa-user-edit"></i> プロフィール編集
-      </div>
-
-      <div class="panel-body">
-        <div class="form-group">
-          <%= f.label :name, 'ユーザー名' %>
-          <%= f.text_field :name, class: 'form-control'%>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :yourself, '自己紹介（最大150文字）' %>
-          <%= f.text_area :yourself, class: 'form-control', rows: 6, placeholder: '改行は反映されません' %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :skill, '言語・スキル' %>
-          <%= f.text_field :skill, class: 'form-control', placeholder: 'html / css / JavaScript / Illustrator'%>
-        </div>
-      </div>
-
-      <div class="panel-heading text-center background white">
         アカウント設定
       </div>
 
       <div class="panel-body">
+      <div class="form-group">
+        <%= f.label :name, 'ユーザー名' %>
+        <%= f.text_field :name, class: 'form-control'%>
+      </div>
+      
         <div class="field form-group">
           <%= f.label :email %><br />
           <%= f.email_field :email, autocomplete: "email", class: 'form-control' %>
