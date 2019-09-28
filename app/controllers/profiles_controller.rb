@@ -47,7 +47,7 @@ class ProfilesController < ApplicationController
   def profile_setting
     @profile = Profile.find_by(user_id: current_user.id)
     unless @profile
-      redirect_to 'new'
+      redirect_to new_profile_url
     end
   end
 end
