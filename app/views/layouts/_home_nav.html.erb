@@ -12,14 +12,14 @@
           <i class="fas fa-user"></i> マイページ
         <% end %>
       </li>
-      <% if current_user.profiles %>
+      <% if current_user.profiles != [] %>
         <li>
           <%= link_to edit_profile_path(current_user) do %>
             <i class="fas fa-user-edit"></i>プロフィール
           <% end %>
         </li>
       <% else %>
-        <li><a href="/profile/new"><i class="fas fa-user-edit"></i></i>プロフィール</a></li>
+        <li><a href="/profiles/new"><i class="fas fa-user-edit"></i></i>プロフィール</a></li>
       <% end %>
       <li role="presentation"><a href="/users/edit" ><i class="fas fa-cog"></i> アカウント設定</a></li>
 
