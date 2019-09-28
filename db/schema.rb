@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190928030922) do
+ActiveRecord::Schema.define(version: 20190928033011) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "comment",    null: false
@@ -30,6 +30,17 @@ ActiveRecord::Schema.define(version: 20190928030922) do
     t.index ["result_id"], name: "index_goods_on_result_id", using: :btree
     t.index ["user_id", "result_id"], name: "index_goods_on_user_id_and_result_id", unique: true, using: :btree
     t.index ["user_id"], name: "index_goods_on_user_id", using: :btree
+  end
+
+  create_table "profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "yourself"
+    t.string   "skill",           default: ""
+    t.string   "twitter_account", default: ""
+    t.string   "github_account",  default: ""
+    t.integer  "user_id"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end
 
   create_table "results", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -64,5 +75,6 @@ ActiveRecord::Schema.define(version: 20190928030922) do
   add_foreign_key "comments", "users"
   add_foreign_key "goods", "results"
   add_foreign_key "goods", "users"
+  add_foreign_key "profiles", "users"
   add_foreign_key "results", "users"
 end

@@ -1,0 +1,40 @@
+<%# プロフィール設定 %>
+<div class='row margin-top20'>
+  <div class="col-sm-6 col-sm-offset-3">
+    <div class="panel-heading text-center background white margin-bottom10">
+      プロフィール設定
+    </div>
+    <%= form_for(profile) do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
+
+      <div class="panel-body">
+        <div class="form-group">
+          <%= f.label :yourself, '自己紹介（最大150文字）' %>
+          <%= f.text_area :yourself, class: 'form-control', rows: 6, placeholder: '改行は反映されません' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :skill, '言語・スキル' %>
+          <%= f.text_field :skill, class: 'form-control', placeholder: 'html / css / JavaScript / Illustrator'%>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :twitter_account, 'twitter' %>
+          <div class="input-group">
+            <span class="input-group-addon">@</span><%= f.text_field :twitter_account, class: 'form-control', placeholder: 'twitterのユーザー名' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :github_account, 'Githubアカウント' %>
+          <%= f.text_field :github_account, class: 'form-control', placeholder: 'https://github.com/github_username' %>
+        </div>
+      </div>
+      
+      
+      <div class="text-center">
+        <%= f.submit '保存する', class: 'btn btn-info'%>
+      </div>
+    <% end %>    
+  </div>
+</div>

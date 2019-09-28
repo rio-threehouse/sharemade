@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :profiles, only: [:new, :create, :edit, :update]
+
   resources :results, except: [:index] do
     resource :goods, only: [:create, :destroy]
   end

@@ -7,9 +7,16 @@
         <span><%= user.name %></span>
       </div>
       <div class="panel-body">
+        <%= render 'profiles/profile', profile: @profile %>
       
         <% if user == current_user %>
-          <a href="/users/edit" class="pull-right"><i class="fas fa-user-edit"></i>プロフィール編集</a>
+          <% if @profile %>
+            <%= link_to edit_profile_path(current_user) do %>
+              <i class="fas fa-user-edit"></i>プロフィール編集
+            <% end %>
+          <% else %>
+            <a href="/profiles/new" class="pull-right"><i class="fas fa-user-edit"></i>プロフィール編集</a>
+          <% end %>
         <% end %>
 
         <% if user_signed_in? == false %>

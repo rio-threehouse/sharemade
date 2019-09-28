@@ -6,6 +6,8 @@
       登録した作品 <span class='green'><%= user.results.count %></span> /
     <% end %>
     <span class="margin-right5">いいねした作品 <%= user.good_results.count %></span>
-    
+
+    <%# ユーザーのプロフィールを表示、ツイッターとgithubアカウントを表示したい %>
+    <%# eachで取り出しているuserをもとに、Profileテーブルからデータを取り出せるか %>
   </div>
 <% end %>

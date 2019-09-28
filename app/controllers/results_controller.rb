@@ -5,6 +5,7 @@ class ResultsController < ApplicationController
   def show
     @result = Result.find(params[:id])
     @comments = Comment.where(result_id: @result.id)
+    @profile = Profile.find_by(user_id: @result.user.id)
     add_visit_count(@result)
     if user_signed_in?
       @comment = current_user.comments.build

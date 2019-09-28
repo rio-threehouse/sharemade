@@ -109,6 +109,7 @@
       </div>
       <div class="panel-body">
         <b><i class="fas fa-user"></i> <%= link_to @result.user.name, user_path(@result.user) %></b>
+        <%= render 'profiles/profile', profile: @profile %>
       </div>
     </div>
 
