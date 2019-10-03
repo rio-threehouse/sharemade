@@ -11,7 +11,7 @@
       
         <% if user == current_user %>
           <% if @profile %>
-            <%= link_to edit_profile_path(current_user) do %>
+            <%= link_to edit_profile_path(current_user), data: {"turbolinks" => false} do %>
               <i class="fas fa-user-edit"></i>プロフィール編集
             <% end %>
           <% else %>
