@@ -9,7 +9,7 @@
 
       <div class="panel-body">
         <div class="form-group">
-          <%= f.label :yourself, '自己紹介（最大150文字）' %>
+          <%= f.label :yourself %>（最大<span class="js-max-text">150</span>文字）
           <%= f.text_area :yourself, class: 'form-control  js-text', rows: 6, placeholder: '改行は反映されません' %>
           <P class="js-text-count pull-right"></P>
         </div>
