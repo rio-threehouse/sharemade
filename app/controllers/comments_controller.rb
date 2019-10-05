@@ -8,27 +8,16 @@ class CommentsController < ApplicationController
     
     @result = Result.find(params[:result_id])
     @comments = Comment.where(result_id: @result.id)
+
+    Notification.create(user_id: current_user.id, result_id: @result.id, kind: 'comment')
     
     @comment_save = @comment.save
-     
-    # if @comment.save
-    #   flash[:success] = 'コメントを投稿しました'
-    #   redirect_back(fallback_location: root_path)
-    # else
-    #   @result = Result.find(params[:result_id])
-    #   @comments = Comment.where(result_id: @result.id)
-    #   flash[:danger] = 'コメントの投稿に失敗しました'
-    #   render 'results/show'
-    # end
   end
 
   def destroy
     @result = Result.find(@comment.result_id)
     @comments = Comment.where(result_id: @result.id)
     @comment.destroy
-    
-    # flash[:danger] = 'コメントを削除しました'
-    # redirect_back(fallback_location: root_path)
   end
 
   private
