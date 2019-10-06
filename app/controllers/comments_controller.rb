@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
     @result = Result.find(params[:result_id])
     @comments = Comment.where(result_id: @result.id)
 
+    # 自分がコメントした時は通知しないように変更する
     Notification.create(user_id: current_user.id, result_id: @result.id, kind: 'comment')
     
     @comment_save = @comment.save

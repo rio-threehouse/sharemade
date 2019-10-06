@@ -36,6 +36,10 @@
   background: #08d1d8;
 }
 
+.new-look-bg {
+  background: #aeffff3f;
+}
+
 .good-bg {
   background: #f79b24;
 }
@@ -77,6 +81,10 @@ footer {
 
 .alert {
   margin: 0;
+}
+
+.badge {
+  background: #0000005e;
 }
 
 /* ナビバー */
@@ -130,6 +138,18 @@ footer {
 
 .signup:hover {
   background: #fff;
+}
+
+.nav-count {
+  margin-top: 13px;
+  margin-left: 3px;
+  padding: 7px 3px;
+  background: hsl(180, 100%, 97%);
+  color: #219191;
+}
+
+.nav-user {
+  padding-left: 6px;
 }
 
 .welcome {
@@ -192,10 +212,6 @@ footer {
 .goodbtn.now {
   color: #fff;
   background: #f79b24;
-}
-
-.badge {
-  background: #0000005e;
 }
 
 /* メニューリスト */

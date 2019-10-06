@@ -19,4 +19,6 @@ Rails.application.routes.draw do
   resources :comments, only: [:create, :destroy]
 
   get '/good_ranking', to: 'goods#index'
+
+  resources :notifications, only: [:index]
 end

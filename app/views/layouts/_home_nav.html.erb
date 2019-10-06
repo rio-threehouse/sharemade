@@ -12,6 +12,9 @@
           <i class="fas fa-user"></i> マイページ
         <% end %>
       </li>
+      <li role="presentation" class="<%= 'active' if current_page?(notifications_path) %>">
+        <a href="/notifications"><i class="fas fa-bell"></i> 通知 <span class="badge">0</span></a>
+      </li>
       <% if current_user.profiles != [] %>
         <li>
           <%= link_to edit_profile_path(current_user), data: {"turbolinks" => false} do %>

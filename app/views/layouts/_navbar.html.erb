@@ -20,7 +20,7 @@
 
     <% if user_signed_in? %>
       <span class="dropdown pull-right navicon">
-        <button class=" btn dropdown-toggle background" type="button" data-toggle="dropdown">
+        <button class=" btn dropdown-toggle background nav-user" type="button" data-toggle="dropdown">
           <span class="naviconfont"><i class="fas fa-user-circle"></i> <i class="fas fa-caret-down"></i></span>
         </button>
         <ul class="dropdown-menu" role="user">
@@ -48,8 +48,10 @@
         </ul>
       </span>
 
+      <a href="/notifications"><span class="badge pull-right margin-top10 nav-count"><i class="far fa-bell"></i> 0</span></a>
+
       <%= link_to new_result_path, class:'white', data: {"turbolinks" => false} do %>
-        <span class="btn pull-right result-new margin-top10">
+        <span class="btn pull-right result-new margin-top10 margin-right5">
           <i class="fas fa-edit"></i> 作品登録
         </span>
       <% end %>
