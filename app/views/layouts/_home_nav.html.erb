@@ -13,7 +13,7 @@
         <% end %>
       </li>
       <li role="presentation" class="<%= 'active' if current_page?(notifications_path) %>">
-        <a href="/notifications"><i class="fas fa-bell"></i> 通知 <span class="badge">0</span></a>
+        <a href="/notifications"><i class="fas fa-bell"></i> 通知 <span class="badge">  <%= uncheck_notifications %></span></a>
       </li>
       <% if current_user.profiles != [] %>
         <li>

@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_many :goods, dependent: :destroy
   has_many :good_results, through: :goods, source: :result
 
-  has_many :notification, dependent: :destroy
+  has_many :notifications, dependent: :destroy
 
   def good(result)
     self.goods.find_or_create_by(result_id: result.id)
