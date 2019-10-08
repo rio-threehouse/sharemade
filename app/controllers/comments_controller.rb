@@ -10,7 +10,9 @@ class CommentsController < ApplicationController
     @comments = Comment.where(result_id: @result.id)
 
     # 自分がコメントした時は通知しないように変更する
-    Notification.create(user_id: current_user.id, result_id: @result.id, kind: 'comment')
+    unless @result.user == current_user
+      Notification.create(user_id: current_user.id, result_id: @result.id, kind: 'comment')
+    end
     
     @comment_save = @comment.save
   end

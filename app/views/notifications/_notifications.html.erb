@@ -1,14 +1,14 @@
 <% notifications.each do |notification| %>
   <div class='eachcontent partition'>
     <% if notification.kind == "good"%>
-      <p><i class="fas fa-thumbs-up"></i> いいね</p>
+      <p><i class="fas fa-thumbs-up"></i> いいね <%= time_ago_in_words(notification.created_at) %></p>
       <p>
         <%= link_to notification.user.name, user_path(notification.user) %>さんが
         あなたの作品「<%= link_to notification.result.title, result_path(notification.result) %>」を
         いいねしました
       </p>
     <% else %>
-      <p><i class="far fa-comment"></i> コメント</p>
+      <p><i class="far fa-comment"></i> コメント <%= time_ago_in_words(notification.created_at) %></p>
       <p>
         <%= link_to notification.user.name, user_path(notification.user) %>さんが
         あなたの作品「<%= link_to notification.result.title, result_path(notification.result) %>」に

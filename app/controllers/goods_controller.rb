@@ -10,7 +10,7 @@ class GoodsController < ApplicationController
     current_user.good(@result)
     
     # 自分がいいねした時は通知しないように変更する
-    unless Notification.find_by(user_id: current_user.id, result_id: @result.id, kind: 'good')
+    unless Notification.find_by(user_id: current_user.id, result_id: @result.id, kind: 'good') || @result.user == current_user
       Notification.create(user_id: current_user.id, result_id: @result.id, kind: 'good')
     end
 
