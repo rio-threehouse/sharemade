@@ -2,26 +2,11 @@
 <div class="row">
   <div class="col-sm-9 col-sm-push-3">
     <div class="home-content b-bottom margin-bottom10 color"><i class="fas fa-bell color"></i> 通知</div>
-      <% @notifications.each do |notification| %>
-        <%# checkがfalseのものだけnew-look-bgをつけるように変更する %>
-        <div class='eachcontent new-look-bg partition'>
-          <% if notification.kind == "good"%>
-            <p><i class="fas fa-thumbs-up"></i> いいね</p>
-            <p>
-              <%= link_to notification.user.name, user_path(notification.user) %>さんが
-              あなたの作品「<%= link_to notification.result.title, result_path(notification.result) %>」を
-              いいねしました
-            </p>
-          <% else %>
-            <p><i class="far fa-comment"></i> コメント</p>
-            <p>
-              <%= link_to notification.user.name, user_path(notification.user) %>さんが
-              あなたの作品「<%= link_to notification.result.title, result_path(notification.result) %>」に
-              コメントしました
-            </p>
-          <% end %>
-        </div>
-      <% end %>
+
+      <div class="new-look-bg">
+        <%= render 'notifications/notifications', notifications: @uncheck_notifications %>
+      </div>
+      <%= render 'notifications/notifications', notifications: @check_notifications %>
     </div>
 
     <%= render 'layouts/home_nav'%>
