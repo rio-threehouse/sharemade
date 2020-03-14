@@ -285,13 +285,6 @@ footer {
   padding: 10px;
 }
 
-.img {
-  max-width: 100%;
-  max-height: 400px;
-  border: 1px solid #f1f1f1;
-  box-shadow: 5px 5px 10px -5px #c0c0c0;
-}
-
 .no_img {
   max-width: 50px;
   height: auto;
@@ -299,6 +292,12 @@ footer {
 
 .no_img_content {
   line-height: 177px;
+}
+
+.no_img_content_show {
+  line-height: 177px;
+  background: #f1f1f1;
+  margin: 15px;
 }
 
 .top-content {

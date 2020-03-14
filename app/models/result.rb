@@ -13,6 +13,4 @@ class Result < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   has_many :notification, dependent: :destroy
-
-  mount_uploader :image, ImagesUploader
 end

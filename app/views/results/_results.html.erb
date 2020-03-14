@@ -5,14 +5,10 @@
         <div class="panel panel-default">
 
           <div class="panel-heading text-center">
-            <% if result.image.url != nil %>
-              <%= image_tag result.image.url, class: 'img' %>
-            <% else %>
-              <div class="no_img_content">
-                <img src="/images/no_img.png" alt="no_image" class="no_img">
-                NO IMAGE
-              </div>
-            <% end %>
+            <div class="no_img_content">
+              <img src="/images/no_img.png" alt="no_image" class="no_img">
+              Under Construction
+            </div>
 
             <% if result.created_at > Time.current.ago(6.days) %>
               <div class="new-label">NEW</div>

@@ -17,11 +17,6 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :image, '画像' %>
-    <%= f.file_field :image, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
     <%= f.label :detail, '作品紹介'%> （<span class="js-max-text">65535</span>文字以内）
     <%= f.text_area :detail, placeholder: '作品の説明・使い方・こだわりなど', class: 'form-control js-text', rows: 10 %>
     <p class="js-text-count pull-right"></p>
